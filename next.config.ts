@@ -2,7 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'vercel.app', 'vercel.com'],
+    unoptimized: true,
   },
   async rewrites() {
     return [
@@ -11,6 +12,10 @@ const nextConfig: NextConfig = {
         destination: '/api/:path*',
       },
     ];
+  },
+  output: 'standalone',
+  experimental: {
+    appDir: true,
   },
 };
 
