@@ -63,9 +63,9 @@ npm install
 3. Set up environment variables:
 ```bash
 # Create .env.local file
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_key
-RESEND_API_KEY=your_resend_api_key
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_KEY=your_supabase_key
+NEXT_PUBLIC_RESEND_API_KEY=your_resend_api_key
 ```
 
 4. Run the development server:
@@ -80,9 +80,9 @@ npm run dev
 Create a `.env.local` file in the root directory:
 
 ```env
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_KEY=your_supabase_anon_key
-RESEND_API_KEY=your_resend_api_key
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_KEY=your_supabase_anon_key
+NEXT_PUBLIC_RESEND_API_KEY=your_resend_api_key
 ```
 
 ## 🚀 Deployment

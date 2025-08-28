@@ -1,7 +1,7 @@
 // import { Resend } from 'resend';
 
 // Initialize Resend client with proper environment variable handling
-const resendApiKey = process.env.RESEND_API_KEY;
+const resendApiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
 
 if (!resendApiKey) {
   console.error('Missing Resend API key. Please check your .env file.');

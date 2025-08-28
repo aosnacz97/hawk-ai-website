@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
 
-const resendApiKey = process.env.RESEND_API_KEY;
+const resendApiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export async function POST(request: NextRequest) {
