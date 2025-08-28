@@ -1,10 +1,10 @@
 // import { Resend } from 'resend';
 
 // Initialize Resend client with proper environment variable handling
-const resendApiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
+const resendApiKey = process.env.RESEND_API_KEY;
 
 if (!resendApiKey) {
-  console.error('Missing Resend API key. Please check your .env file.');
+  throw new Error('Missing Resend API key');
 }
 
 // Note: Resend client is not used in this file anymore since we moved to API endpoint
@@ -51,7 +51,6 @@ Sent from Ease Up website contact form
     // Note: The original Resend approach would work with a proper backend API
     // For now, this provides a working fallback solution
   } catch (error) {
-    console.error('Error sending email:', error);
     return { 
       success: false, 
       message: 'Failed to open email client. Please email us directly at support@ease-up.app' 

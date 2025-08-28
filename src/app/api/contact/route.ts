@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
 
-const resendApiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
+const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export async function POST(request: NextRequest) {
@@ -64,7 +64,6 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error('Resend error:', error);
       return NextResponse.json(
         { message: 'Failed to send email' },
         { status: 500 }
@@ -106,7 +105,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Contact form error:', error);
     return NextResponse.json(
       { message: 'Internal server error' },
       { status: 500 }
