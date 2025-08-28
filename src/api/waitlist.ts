@@ -1,3 +1,4 @@
+// Updated for security - all operations now server-side
 export interface WaitlistSubmission {
   email: string;
 }

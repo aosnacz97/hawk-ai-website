@@ -1,14 +1,9 @@
-// import { Resend } from 'resend';
-
 // Initialize Resend client with proper environment variable handling
 const resendApiKey = process.env.RESEND_API_KEY;
 
 if (!resendApiKey) {
   throw new Error('Missing Resend API key');
 }
-
-// Note: Resend client is not used in this file anymore since we moved to API endpoint
-// const resend = new Resend(resendApiKey || 'placeholder-key');
 
 export interface ContactFormData {
   name: string;

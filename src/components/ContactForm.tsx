@@ -44,7 +44,6 @@ const ContactForm: React.FC = () => {
         setErrorMessage(errorData.message || 'Failed to send message. Please try again.');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
       setSubmitStatus('error');
       setErrorMessage('Network error. Please check your connection and try again.');
     } finally {
