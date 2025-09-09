@@ -118,7 +118,7 @@ export function sanitizeForLogging(data: unknown): unknown {
     return data;
   }
 
-  const sanitized = { ...data };
+  const sanitized = { ...data } as Record<string, unknown>;
   
   SECURITY_CONFIG.LOGGING.SENSITIVE_FIELDS.forEach(field => {
     if (field in sanitized) {
