@@ -51,108 +51,147 @@ export default function MagicLinkLogin({ onLoginSuccess, onClose }: MagicLinkLog
 
   if (isSuccess) {
     return (
-      <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+      <div className="space-y-6">
         <div className="text-center">
-          <EnvelopeIcon className="mx-auto h-16 w-16 text-green-500 mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Check Your Email</h2>
-          <p className="text-gray-600 mb-4">
-            We&apos;ve sent a magic link to <strong>{email}</strong>
-          </p>
-          <p className="text-sm text-gray-500 mb-6">
-            Click the link in the email to sign in. The link will expire in 24 hours and can only be used once.
-          </p>
-          <div className="space-y-2">
-            <button
-              onClick={() => {
-                setIsSuccess(false);
-                setMessage('');
-              }}
-              className="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors"
-            >
-              Send Another Link
-            </button>
-            {onClose && (
-              <button
-                onClick={onClose}
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Close
-              </button>
-            )}
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+            <EnvelopeIcon className="h-8 w-8 text-green-600" />
           </div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">
+            Check Your Email
+          </h2>
+          <p className="text-gray-600 mb-4 leading-relaxed">
+            We&apos;ve sent a secure magic link to{' '}
+            <span className="font-medium text-gray-900">{email}</span>
+          </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+            <div className="flex items-start space-x-3">
+              <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="text-left">
+                <p className="text-sm text-blue-800 font-medium mb-1">
+                  Next Steps:
+                </p>
+                <ul className="text-sm text-blue-700 space-y-1">
+                  <li>• Click the magic link in your email</li>
+                  <li>• Link expires in 24 hours</li>
+                  <li>• Can only be used once for security</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="space-y-3">
+          <button
+            onClick={() => {
+              setIsSuccess(false);
+              setMessage('');
+            }}
+            className="w-full bg-gray-100 text-gray-700 font-medium py-3 px-6 rounded-xl hover:bg-gray-200 transition-all duration-200"
+          >
+            Send Another Link
+          </button>
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium py-3 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-sm"
+            >
+              Continue
+            </button>
+          )}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Sign In with Magic Link</h2>
-        <p className="text-gray-600">
-          Enter your email to receive a secure login link
+    <div className="space-y-6">
+      <div className="text-center">
+        <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4">
+          <EnvelopeIcon className="h-6 w-6 text-green-600" />
+        </div>
+        <h2 className="text-xl font-semibold text-gray-900 mb-3">
+          Sign In with Magic Link
+        </h2>
+        <p className="text-gray-600 leading-relaxed">
+          Enter your email to receive a secure login link - no password required
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-            Name (Optional)
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-            placeholder="Your name"
-          />
-        </div>
+        <div className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              Name (Optional)
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+              placeholder="Your name"
+            />
+          </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email Address *
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-            placeholder="your@email.com"
-          />
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+              placeholder="your@email.com"
+            />
+          </div>
         </div>
 
         {error && (
-          <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
-            <ExclamationTriangleIcon className="h-5 w-5" />
-            <span className="text-sm">{error}</span>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <div className="flex items-start space-x-3">
+              <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-red-800">{error}</p>
+            </div>
           </div>
         )}
 
         {message && (
-          <div className="flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-lg">
-            <CheckCircleIcon className="h-5 w-5" />
-            <span className="text-sm">{message}</span>
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="flex items-start space-x-3">
+              <CheckCircleIcon className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-green-800">{message}</p>
+            </div>
           </div>
         )}
 
         <button
           type="submit"
           disabled={isLoading || !email}
-          className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-medium py-3 px-6 rounded-xl hover:from-green-700 hover:to-green-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-200 shadow-sm"
         >
-          {isLoading ? 'Sending...' : 'Send Magic Link'}
+          {isLoading ? (
+            <div className="flex items-center justify-center space-x-2">
+              <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+              <span>Sending Magic Link...</span>
+            </div>
+          ) : (
+            'Send Magic Link'
+          )}
         </button>
       </form>
 
-      <div className="mt-6 text-center">
-        <p className="text-sm text-gray-500">
-          Magic links are secure and don&apos;t require passwords. 
-          <br />
-          The link expires in 24 hours for your security.
-        </p>
+      <div className="text-center">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+          <div className="flex items-center justify-center space-x-2 mb-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-sm font-medium text-gray-900">Secure & Password-Free</span>
+          </div>
+          <p className="text-xs text-gray-600 leading-relaxed">
+            Magic links are secure, password-free authentication that expires in 24 hours for your safety.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -51,22 +51,41 @@ export default function EmailVerification({ onVerificationComplete, onClose }: E
 
   if (isSuccess) {
     return (
-      <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+      <div className="space-y-6">
         <div className="text-center">
-          <CheckCircleIcon className="mx-auto h-16 w-16 text-green-500 mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Check Your Email</h2>
-          <p className="text-gray-600 mb-4">
-            We&apos;ve sent a verification link to <strong>{email}</strong>
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+            <CheckCircleIcon className="h-8 w-8 text-green-600" />
+          </div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">
+            Check Your Email
+          </h2>
+          <p className="text-gray-600 mb-4 leading-relaxed">
+            We&apos;ve sent a verification link to{' '}
+            <span className="font-medium text-gray-900">{email}</span>
           </p>
-          <p className="text-sm text-gray-500 mb-6">
-            Click the link in the email to verify your account. The link will expire in 48 hours.
-          </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+            <div className="flex items-start space-x-3">
+              <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="text-left">
+                <p className="text-sm text-blue-800 font-medium mb-1">
+                  Next Steps:
+                </p>
+                <ul className="text-sm text-blue-700 space-y-1">
+                  <li>• Click the verification link in your email</li>
+                  <li>• Link expires in 48 hours</li>
+                  <li>• Only works for this email address</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="space-y-3">
           {onClose && (
             <button
               onClick={onClose}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium py-3 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-sm"
             >
-              Close
+              Continue
             </button>
           )}
         </div>
@@ -75,66 +94,96 @@ export default function EmailVerification({ onVerificationComplete, onClose }: E
   }
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Verify Your Email</h2>
-        <p className="text-gray-600">
-          Enter your email address to receive a verification link
+    <div className="space-y-6">
+      <div className="text-center">
+        <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4">
+          <CheckCircleIcon className="h-6 w-6 text-blue-600" />
+        </div>
+        <h2 className="text-xl font-semibold text-gray-900 mb-3">
+          Verify Your Email
+        </h2>
+        <p className="text-gray-600 leading-relaxed">
+          Enter your email address to receive a secure verification link
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-            Name (Optional)
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Your name"
-          />
-        </div>
+        <div className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              Name (Optional)
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              placeholder="Your name"
+            />
+          </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email Address *
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="your@email.com"
-          />
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              placeholder="your@email.com"
+            />
+          </div>
         </div>
 
         {error && (
-          <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
-            <ExclamationTriangleIcon className="h-5 w-5" />
-            <span className="text-sm">{error}</span>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <div className="flex items-start space-x-3">
+              <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-red-800">{error}</p>
+            </div>
           </div>
         )}
 
         {message && (
-          <div className="flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-lg">
-            <CheckCircleIcon className="h-5 w-5" />
-            <span className="text-sm">{message}</span>
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="flex items-start space-x-3">
+              <CheckCircleIcon className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-green-800">{message}</p>
+            </div>
           </div>
         )}
 
         <button
           type="submit"
           disabled={isLoading || !email}
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium py-3 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-200 shadow-sm"
         >
-          {isLoading ? 'Sending...' : 'Send Verification Email'}
+          {isLoading ? (
+            <div className="flex items-center justify-center space-x-2">
+              <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+              <span>Sending Verification...</span>
+            </div>
+          ) : (
+            'Send Verification Email'
+          )}
         </button>
       </form>
+
+      <div className="text-center">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+          <div className="flex items-center justify-center space-x-2 mb-2">
+            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span className="text-sm font-medium text-gray-900">Secure Verification</span>
+          </div>
+          <p className="text-xs text-gray-600 leading-relaxed">
+            Verification links are secure and expire after 48 hours. Check your spam folder if you don&apos;t see the email.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

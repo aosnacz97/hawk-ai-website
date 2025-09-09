@@ -1,30 +1,155 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import MagicLinkLogin from '@/components/MagicLinkLogin';
+import EmailVerification from '@/components/EmailVerification';
 
 export default function LoginPage() {
-  const [showLogin, setShowLogin] = useState(true);
+  const [activeTab, setActiveTab] = useState<'login' | 'verify'>('login');
 
   const handleLoginSuccess = (email: string) => {
     console.log('Magic link sent to:', email);
     // You can add additional logic here, like tracking analytics
   };
 
-  const handleClose = () => {
-    setShowLogin(false);
-    // Redirect to home or dashboard
-    window.location.href = '/';
+  const handleVerificationComplete = (email: string) => {
+    console.log('Verification email sent to:', email);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      {showLogin && (
-        <MagicLinkLogin 
-          onLoginSuccess={handleLoginSuccess}
-          onClose={handleClose}
-        />
-      )}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+      {/* Header */}
+      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+              <Image
+                src="/ease_up_logo.png"
+                alt="Ease Up Logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-2xl"
+              />
+              <span className="text-xl font-bold text-gray-900">Ease Up</span>
+            </Link>
+            <Link
+              href="/"
+              className="text-gray-600 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors duration-200"
+            >
+              ← Back to Home
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-md mx-auto">
+          {/* Hero Section */}
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center mb-6">
+              <Image
+                src="/ease_up_logo.png"
+                alt="Ease Up Logo"
+                width={64}
+                height={64}
+                className="h-16 w-16 rounded-3xl shadow-lg"
+              />
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-3">
+              Welcome to Ease Up
+            </h1>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Your journey to better posture and pain relief starts here
+            </p>
+          </div>
+
+          {/* Tab Navigation */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-1 mb-8">
+            <div className="flex">
+              <button
+                onClick={() => setActiveTab('login')}
+                className={`flex-1 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 ${
+                  activeTab === 'login'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                Sign In
+              </button>
+              <button
+                onClick={() => setActiveTab('verify')}
+                className={`flex-1 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 ${
+                  activeTab === 'verify'
+                    ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                Verify Email
+              </button>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="space-y-6">
+            {activeTab === 'login' && (
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200/50 overflow-hidden">
+                <div className="p-8">
+                  <MagicLinkLogin
+                    onLoginSuccess={handleLoginSuccess}
+                  />
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'verify' && (
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200/50 overflow-hidden">
+                <div className="p-8">
+                  <EmailVerification
+                    onVerificationComplete={handleVerificationComplete}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Footer */}
+          <div className="mt-12 text-center">
+            <p className="text-sm text-gray-500 mb-4">
+              By continuing, you agree to our{' '}
+              <Link href="#" className="text-blue-600 hover:text-blue-700 underline">
+                Terms of Service
+              </Link>{' '}
+              and{' '}
+              <Link href="#" className="text-blue-600 hover:text-blue-700 underline">
+                Privacy Policy
+              </Link>
+            </p>
+            <div className="flex justify-center space-x-6">
+              <Link href="/apple-waitlist" className="transition-transform hover:scale-105">
+                <Image
+                  src="/app_store_badge.png"
+                  alt="Download on the App Store"
+                  width={140}
+                  height={42}
+                  className="h-10 w-auto"
+                />
+              </Link>
+              <Link href="/android-waitlist" className="transition-transform hover:scale-105">
+                <Image
+                  src="/play_store_badge.png"
+                  alt="Get it on Google Play"
+                  width={140}
+                  height={42}
+                  className="h-10 w-auto"
+                />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
