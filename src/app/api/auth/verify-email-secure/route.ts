@@ -41,8 +41,8 @@ export async function POST(request: NextRequest) {
         { 
           status: 429,
           headers: {
-            'Retry-After': rateLimitResult.retryAfter?.toString() || '3600',
-            'X-RateLimit-Limit': '10',
+            'Retry-After': rateLimitResult.retryAfter?.toString() || '300',
+            'X-RateLimit-Limit': '10000',
             'X-RateLimit-Remaining': '0',
             'X-RateLimit-Reset': rateLimitResult.resetTime.toString()
           }
@@ -156,7 +156,7 @@ export async function POST(request: NextRequest) {
       verified: true
     }, {
       headers: {
-        'X-RateLimit-Limit': '10',
+        'X-RateLimit-Limit': '10000',
         'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
         'X-RateLimit-Reset': rateLimitResult.resetTime.toString()
       }

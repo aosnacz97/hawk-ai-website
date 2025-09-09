@@ -71,8 +71,8 @@ export async function POST(request: NextRequest) {
         { 
           status: 429,
           headers: {
-            'Retry-After': emailRateLimitResult.retryAfter?.toString() || '900',
-            'X-RateLimit-Limit': '50',
+            'Retry-After': emailRateLimitResult.retryAfter?.toString() || '300',
+            'X-RateLimit-Limit': '32767',
             'X-RateLimit-Remaining': '0',
             'X-RateLimit-Reset': emailRateLimitResult.resetTime.toString(),
             'X-User-Tier': emailRateLimitResult.tier || 'standard'
@@ -186,7 +186,7 @@ export async function POST(request: NextRequest) {
       email: sanitizedEmail 
     }, {
       headers: {
-        'X-RateLimit-Limit': '50',
+        'X-RateLimit-Limit': '32767',
         'X-RateLimit-Remaining': emailRateLimitResult.remaining.toString(),
         'X-RateLimit-Reset': emailRateLimitResult.resetTime.toString(),
         'X-User-Tier': emailRateLimitResult.tier || 'standard',

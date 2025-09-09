@@ -138,11 +138,11 @@ export class EnterpriseRateLimiter {
   }
 }
 
-// Enterprise-grade rate limiters for high-traffic applications
+// Enterprise-grade rate limiters aligned with Supabase limits
 export const enterpriseEmailRateLimiter = new EnterpriseRateLimiter({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  maxRequests: 50, // 50 emails per 15 minutes per IP
-  burstLimit: 10, // Allow 10 burst requests
+  windowMs: 60 * 60 * 1000, // 1 hour (matching Supabase email rate limit)
+  maxRequests: 32767, // 32,767 emails per hour per IP (matching Supabase)
+  burstLimit: 1000, // Allow 1000 burst requests
   keyGenerator: (request) => {
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
@@ -151,53 +151,53 @@ export const enterpriseEmailRateLimiter = new EnterpriseRateLimiter({
   },
   tieredLimits: {
     premium: {
-      windowMs: 15 * 60 * 1000,
-      maxRequests: 100 // Premium users get 100 emails per 15 minutes
+      windowMs: 60 * 60 * 1000,
+      maxRequests: 32767 // Premium users get full email limit
     },
     corporate: {
-      windowMs: 15 * 60 * 1000,
-      maxRequests: 200 // Corporate users get 200 emails per 15 minutes
+      windowMs: 60 * 60 * 1000,
+      maxRequests: 32767 // Corporate users get full email limit
     }
   }
 });
 
 export const enterpriseVerificationRateLimiter = new EnterpriseRateLimiter({
-  windowMs: 60 * 60 * 1000, // 1 hour
-  maxRequests: 100, // 100 verification attempts per hour per IP
-  burstLimit: 20, // Allow 20 burst requests
+  windowMs: 5 * 60 * 1000, // 5 minutes (matching Supabase token verification)
+  maxRequests: 10000, // 10,000 verification attempts per 5 minutes per IP (matching Supabase)
+  burstLimit: 1000, // Allow 1000 burst requests
   tieredLimits: {
     premium: {
-      windowMs: 60 * 60 * 1000,
-      maxRequests: 200 // Premium users get 200 verifications per hour
+      windowMs: 5 * 60 * 1000,
+      maxRequests: 10000 // Premium users get full verification limit
     },
     corporate: {
-      windowMs: 60 * 60 * 1000,
-      maxRequests: 500 // Corporate users get 500 verifications per hour
+      windowMs: 5 * 60 * 1000,
+      maxRequests: 10000 // Corporate users get full verification limit
     }
   }
 });
 
 export const enterpriseMagicLinkRateLimiter = new EnterpriseRateLimiter({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  maxRequests: 30, // 30 magic links per 15 minutes per IP
-  burstLimit: 10, // Allow 10 burst requests
+  windowMs: 5 * 60 * 1000, // 5 minutes (matching Supabase token verification)
+  maxRequests: 10000, // 10,000 magic links per 5 minutes per IP (matching Supabase)
+  burstLimit: 1000, // Allow 1000 burst requests
   tieredLimits: {
     premium: {
-      windowMs: 15 * 60 * 1000,
-      maxRequests: 60 // Premium users get 60 magic links per 15 minutes
+      windowMs: 5 * 60 * 1000,
+      maxRequests: 10000 // Premium users get full magic link limit
     },
     corporate: {
-      windowMs: 15 * 60 * 1000,
-      maxRequests: 100 // Corporate users get 100 magic links per 15 minutes
+      windowMs: 5 * 60 * 1000,
+      maxRequests: 10000 // Corporate users get full magic link limit
     }
   }
 });
 
-// Global rate limiter for overall API protection
+// Global rate limiter for overall API protection (aligned with sign up/sign in limits)
 export const globalRateLimiter = new EnterpriseRateLimiter({
-  windowMs: 60 * 1000, // 1 minute
-  maxRequests: 1000, // 1000 requests per minute per IP
-  burstLimit: 100, // Allow 100 burst requests
+  windowMs: 5 * 60 * 1000, // 5 minutes (matching Supabase sign up/sign in)
+  maxRequests: 32767, // 32,767 requests per 5 minutes per IP (matching Supabase)
+  burstLimit: 1000, // Allow 1000 burst requests
   keyGenerator: (request) => {
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';

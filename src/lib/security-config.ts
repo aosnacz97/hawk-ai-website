@@ -9,19 +9,19 @@ export const SECURITY_CONFIG = {
     VERSION: '1.0'
   },
 
-  // Rate limiting configuration for production scale
+  // Rate limiting configuration aligned with Supabase limits
   RATE_LIMITS: {
     EMAIL_SEND: {
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      maxRequests: 20 // 20 emails per 15 minutes per IP
+      windowMs: 60 * 60 * 1000, // 1 hour (matching Supabase)
+      maxRequests: 32767 // 32,767 emails per hour per IP (matching Supabase)
     },
     VERIFICATION: {
-      windowMs: 60 * 60 * 1000, // 1 hour
-      maxRequests: 50 // 50 verification attempts per hour per IP
+      windowMs: 5 * 60 * 1000, // 5 minutes (matching Supabase token verification)
+      maxRequests: 10000 // 10,000 verification attempts per 5 minutes per IP (matching Supabase)
     },
     MAGIC_LINK: {
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      maxRequests: 15 // 15 magic links per 15 minutes per IP
+      windowMs: 5 * 60 * 1000, // 5 minutes (matching Supabase token verification)
+      maxRequests: 10000 // 10,000 magic links per 5 minutes per IP (matching Supabase)
     }
   },
 
