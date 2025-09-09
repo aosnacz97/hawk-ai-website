@@ -194,7 +194,7 @@ function VerifyEmailContent() {
             <div className="bg-white/60 backdrop-blur-sm rounded-xl border border-gray-200/50 p-6">
               <h3 className="text-sm font-medium text-gray-900 mb-2">Need Help?</h3>
               <p className="text-xs text-gray-500 leading-relaxed mb-3">
-                Verification links expire after 48 hours. If you're having trouble, check your spam folder or contact our support team.
+                Verification links expire after 48 hours. If you&apos;re having trouble, check your spam folder or contact our support team.
               </p>
               <Link
                 href="mailto:support@ease-up.app"
