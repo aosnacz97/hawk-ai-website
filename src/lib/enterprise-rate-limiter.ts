@@ -146,8 +146,7 @@ export const enterpriseEmailRateLimiter = new EnterpriseRateLimiter({
   keyGenerator: (request) => {
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
-    const body = request.clone();
-    return body.json().then((data: Record<string, unknown>) => `email:${ip}:${data.email}`).catch(() => `email:${ip}`);
+    return `email:${ip}`;
   },
   tieredLimits: {
     premium: {

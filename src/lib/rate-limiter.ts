@@ -94,11 +94,10 @@ export const emailRateLimiter = new RateLimiter({
   windowMs: 15 * 60 * 1000, // 15 minutes
   maxRequests: 20, // 20 emails per 15 minutes per IP
   keyGenerator: (request) => {
-    // Rate limit by IP + email combination
+    // Rate limit by IP
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
-    const body = request.clone();
-    return body.json().then((data: Record<string, unknown>) => `email:${ip}:${data.email}`).catch(() => `email:${ip}`);
+    return `email:${ip}`;
   }
 });
 
