@@ -42,7 +42,7 @@ export default function MagicLinkLogin({ onLoginSuccess, onClose }: MagicLinkLog
       } else {
         setError(data.message || 'Failed to send magic link');
       }
-    } catch (err) {
+    } catch {
       setError('Network error. Please try again.');
     } finally {
       setIsLoading(false);
@@ -56,7 +56,7 @@ export default function MagicLinkLogin({ onLoginSuccess, onClose }: MagicLinkLog
           <EnvelopeIcon className="mx-auto h-16 w-16 text-green-500 mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Check Your Email</h2>
           <p className="text-gray-600 mb-4">
-            We've sent a magic link to <strong>{email}</strong>
+            We&apos;ve sent a magic link to <strong>{email}</strong>
           </p>
           <p className="text-sm text-gray-500 mb-6">
             Click the link in the email to sign in. The link will expire in 24 hours and can only be used once.
@@ -149,7 +149,7 @@ export default function MagicLinkLogin({ onLoginSuccess, onClose }: MagicLinkLog
 
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-500">
-          Magic links are secure and don't require passwords. 
+          Magic links are secure and don&apos;t require passwords. 
           <br />
           The link expires in 24 hours for your security.
         </p>

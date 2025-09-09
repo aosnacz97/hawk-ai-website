@@ -8,7 +8,7 @@ const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 // Request logging for security monitoring
-function logSecurityEvent(event: string, details: any, request: NextRequest) {
+function logSecurityEvent(event: string, details: Record<string, unknown>, request: NextRequest) {
   const ip = request.headers.get('x-forwarded-for') || 'unknown';
   const userAgent = request.headers.get('user-agent') || 'unknown';
   
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     let body;
     try {
       body = await request.json();
-    } catch (error) {
+    } catch {
       logSecurityEvent('INVALID_JSON', { error: 'Malformed JSON' }, request);
       return NextResponse.json(
         { message: 'Invalid request format' },

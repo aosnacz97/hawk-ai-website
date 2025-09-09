@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { submitToAppleWaitlist } from '../api/waitlist';
 
 const AppleWaitlist: React.FC = () => {
@@ -35,25 +36,31 @@ const AppleWaitlist: React.FC = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center">
-            <img
+            <Image
               src="/ease_up_logo_transparent.png"
               alt="Ease Up Logo"
+              width={32}
+              height={32}
               className="h-8 w-auto"
             />
             <span className="ml-2 text-xl font-bold text-gray-900">Ease Up</span>
           </div>
           <div className="flex items-center space-x-4">
             <a href="/apple-waitlist" className="inline-block">
-              <img
+              <Image
                 src="/app_store_badge.png"
                 alt="Download on the App Store"
+                width={120}
+                height={40}
                 className="h-8 w-auto"
               />
             </a>
             <a href="/android-waitlist" className="inline-block">
-              <img
+              <Image
                 src="/play_store_badge.png"
                 alt="Get it on Google Play"
+                width={120}
+                height={40}
                 className="h-8 w-auto"
               />
             </a>
@@ -65,9 +72,11 @@ const AppleWaitlist: React.FC = () => {
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
-              <img
+              <Image
                 src="/ease_up_logo.png"
                 alt="Ease Up Logo"
+                width={48}
+                height={48}
                 className="h-12 w-12 rounded-2xl"
               />
               <span className="ml-3 text-2xl font-bold text-gray-900">Ease Up</span>
@@ -88,9 +97,11 @@ const AppleWaitlist: React.FC = () => {
           {/* App Store Badge */}
           <div className="text-center mb-8">
             <a href="#app-store" className="inline-block transition-transform hover:scale-105">
-              <img
+              <Image
                 src="/app_store_badge.png"
                 alt="Download on the App Store"
+                width={200}
+                height={60}
                 className="h-16 w-auto"
               />
             </a>

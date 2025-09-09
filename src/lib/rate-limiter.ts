@@ -49,7 +49,7 @@ export class RateLimiter {
     
     const key = this.getKey(request);
     const now = Date.now();
-    const windowStart = now - this.config.windowMs;
+    const _windowStart = now - this.config.windowMs;
 
     const entry = rateLimitStore.get(key);
     
@@ -98,7 +98,7 @@ export const emailRateLimiter = new RateLimiter({
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
     const body = request.clone();
-    return body.json().then((data: any) => `email:${ip}:${data.email}`).catch(() => `email:${ip}`);
+    return body.json().then((data: Record<string, unknown>) => `email:${ip}:${data.email}`).catch(() => `email:${ip}`);
   }
 });
 

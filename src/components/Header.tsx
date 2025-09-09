@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const Header: React.FC = () => {
@@ -18,9 +19,11 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <img
+            <Image
               src="/ease_up_logo.png"
               alt="Ease Up Logo"
+              width={40}
+              height={40}
               className="h-10 w-10 rounded-2xl"
             />
             <span className="ml-2 text-xl font-bold text-gray-900">Ease Up</span>
@@ -45,9 +48,11 @@ const Header: React.FC = () => {
               href="/apple-waitlist" 
               className="inline-block transition-transform hover:scale-105"
             >
-              <img
+              <Image
                 src="/app_store_badge.png"
                 alt="Download on the App Store"
+                width={120}
+                height={40}
                 className="h-8 w-auto"
               />
             </a>
@@ -55,9 +60,11 @@ const Header: React.FC = () => {
               href="/android-waitlist" 
               className="inline-block transition-transform hover:scale-105"
             >
-              <img
+              <Image
                 src="/play_store_badge.png"
                 alt="Get it on Google Play"
+                width={120}
+                height={40}
                 className="h-8 w-auto"
               />
             </a>
@@ -99,9 +106,11 @@ const Header: React.FC = () => {
                   className="inline-block transition-transform hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <img
+                  <Image
                     src="/app_store_badge.png"
                     alt="Download on the App Store"
+                    width={150}
+                    height={50}
                     className="h-10 w-auto mx-auto"
                   />
                 </a>
@@ -110,9 +119,11 @@ const Header: React.FC = () => {
                   className="inline-block transition-transform hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <img
+                  <Image
                     src="/play_store_badge.png"
                     alt="Get it on Google Play"
+                    width={150}
+                    height={50}
                     className="h-10 w-auto mx-auto"
                   />
                 </a>

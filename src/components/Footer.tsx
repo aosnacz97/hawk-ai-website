@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -55,9 +56,11 @@ const Footer: React.FC = () => {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center mb-6">
-                <img
+                <Image
                   src="/ease_up_logo.png"
                   alt="Ease Up Logo"
+                  width={40}
+                  height={40}
                   className="h-10 w-10 rounded-2xl"
                 />
                 <span className="ml-2 text-xl font-bold">Ease Up</span>
@@ -74,9 +77,11 @@ const Footer: React.FC = () => {
                   href="/apple-waitlist" 
                   className="inline-block transition-transform hover:scale-105"
                 >
-                  <img
+                  <Image
                     src="/app_store_badge.png"
                     alt="Download on the App Store"
+                    width={150}
+                    height={50}
                     className="h-10 w-auto"
                   />
                 </a>
@@ -84,9 +89,11 @@ const Footer: React.FC = () => {
                   href="/android-waitlist" 
                   className="inline-block transition-transform hover:scale-105"
                 >
-                  <img
+                  <Image
                     src="/play_store_badge.png"
                     alt="Get it on Google Play"
+                    width={150}
+                    height={50}
                     className="h-10 w-auto"
                   />
                 </a>
@@ -101,9 +108,11 @@ const Footer: React.FC = () => {
                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors duration-200"
                     aria-label={social.name}
                   >
-                    <img
+                    <Image
                       src={social.icon}
                       alt={social.name}
+                      width={20}
+                      height={20}
                       className="w-5 h-5 brightness-0 invert"
                     />
                   </a>

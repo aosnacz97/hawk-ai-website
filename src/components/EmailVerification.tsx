@@ -42,7 +42,7 @@ export default function EmailVerification({ onVerificationComplete, onClose }: E
       } else {
         setError(data.message || 'Failed to send verification email');
       }
-    } catch (err) {
+    } catch {
       setError('Network error. Please try again.');
     } finally {
       setIsLoading(false);
@@ -56,7 +56,7 @@ export default function EmailVerification({ onVerificationComplete, onClose }: E
           <CheckCircleIcon className="mx-auto h-16 w-16 text-green-500 mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Check Your Email</h2>
           <p className="text-gray-600 mb-4">
-            We've sent a verification link to <strong>{email}</strong>
+            We&apos;ve sent a verification link to <strong>{email}</strong>
           </p>
           <p className="text-sm text-gray-500 mb-6">
             Click the link in the email to verify your account. The link will expire in 48 hours.

@@ -45,7 +45,7 @@ Sent from Ease Up website contact form
     
     // Note: The original Resend approach would work with a proper backend API
     // For now, this provides a working fallback solution
-  } catch (error) {
+  } catch {
     return { 
       success: false, 
       message: 'Failed to open email client. Please email us directly at support@ease-up.app' 

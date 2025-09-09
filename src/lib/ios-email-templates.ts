@@ -10,7 +10,7 @@ interface IOSEmailTemplateProps {
 
 export function getIOSVerificationEmailTemplate({
   name = 'User',
-  email,
+  email: _email,
   verificationUrl,
   appName = 'Ease Up',
   fallbackWebUrl
@@ -83,7 +83,7 @@ export function getIOSVerificationEmailTemplate({
 
 export function getIOSMagicLinkEmailTemplate({
   name = 'User',
-  email,
+  email: _email,
   magicLinkUrl,
   appName = 'Ease Up',
   fallbackWebUrl

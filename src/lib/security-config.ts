@@ -113,7 +113,7 @@ export function getSecurityHeaders(): Record<string, string> {
 }
 
 // Input sanitization helpers
-export function sanitizeForLogging(data: any): any {
+export function sanitizeForLogging(data: unknown): unknown {
   if (typeof data !== 'object' || data === null) {
     return data;
   }

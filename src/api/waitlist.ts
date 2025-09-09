@@ -15,7 +15,7 @@ export const submitToAndroidWaitlist = async (email: string): Promise<{ success:
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return { success: false, message: 'Failed to join waitlist. Please try again.' };
   }
 };
@@ -32,7 +32,7 @@ export const submitToAppleWaitlist = async (email: string): Promise<{ success: b
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return { success: false, message: 'Failed to join waitlist. Please try again.' };
   }
 };

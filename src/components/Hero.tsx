@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
   return (
@@ -27,9 +28,11 @@ const Hero: React.FC = () => {
                   href="/apple-waitlist" 
                   className="inline-block transition-transform hover:scale-105"
                 >
-                  <img
+                  <Image
                     src="/app_store_badge.png"
                     alt="Download on the App Store"
+                    width={200}
+                    height={70}
                     className="h-14 w-auto"
                   />
                 </a>
@@ -37,9 +40,11 @@ const Hero: React.FC = () => {
                   href="/android-waitlist" 
                   className="inline-block transition-transform hover:scale-105"
                 >
-                  <img
+                  <Image
                     src="/play_store_badge.png"
                     alt="Get it on Google Play"
+                    width={200}
+                    height={70}
                     className="h-14 w-auto"
                   />
                 </a>
@@ -68,9 +73,11 @@ const Hero: React.FC = () => {
           <div className="lg:w-1/2 lg:pl-12">
             <div className="relative">
               <div className="relative z-10">
-                <img
+                <Image
                   src="/ease_up_logo_transparent.png"
                   alt="Ease Up App Preview"
+                  width={400}
+                  height={400}
                   className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
                 />
               </div>

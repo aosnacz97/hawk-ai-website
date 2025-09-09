@@ -142,7 +142,7 @@ export function decodeSecureToken(token: string): TokenValidationResult {
     
     return { valid: true, payload };
     
-  } catch (error) {
+  } catch {
     return { 
       valid: false, 
       error: 'Invalid token format', 

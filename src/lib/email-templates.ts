@@ -8,7 +8,7 @@ interface EmailTemplateProps {
 
 export function getVerificationEmailTemplate({
   name = 'User',
-  email,
+  email: _email,
   verificationUrl,
   appName = 'Ease Up'
 }: EmailTemplateProps): string {
@@ -67,7 +67,7 @@ export function getVerificationEmailTemplate({
 
 export function getMagicLinkEmailTemplate({
   name = 'User',
-  email,
+  email: _email,
   magicLinkUrl,
   appName = 'Ease Up'
 }: EmailTemplateProps): string {
@@ -132,7 +132,7 @@ export function getMagicLinkEmailTemplate({
 
 export function getVerificationSuccessEmailTemplate({
   name = 'User',
-  email,
+  email: _email,
   appName = 'Ease Up'
 }: EmailTemplateProps): string {
   return `

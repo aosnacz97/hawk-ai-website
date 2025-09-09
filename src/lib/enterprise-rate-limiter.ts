@@ -48,7 +48,7 @@ export class EnterpriseRateLimiter {
 
   private detectTier(request: Request): string {
     // Detect user tier based on headers, IP, or other factors
-    const userAgent = request.headers.get('user-agent') || '';
+    const _userAgent = request.headers.get('user-agent') || '';
     const forwarded = request.headers.get('x-forwarded-for') || '';
     
     // Premium users (you can implement your own logic)
@@ -147,7 +147,7 @@ export const enterpriseEmailRateLimiter = new EnterpriseRateLimiter({
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
     const body = request.clone();
-    return body.json().then((data: any) => `email:${ip}:${data.email}`).catch(() => `email:${ip}`);
+    return body.json().then((data: Record<string, unknown>) => `email:${ip}:${data.email}`).catch(() => `email:${ip}`);
   },
   tieredLimits: {
     premium: {

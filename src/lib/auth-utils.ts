@@ -51,7 +51,7 @@ export function decodeToken(token: string): TokenPayload | null {
   try {
     const jsonString = Buffer.from(token, 'base64url').toString('utf-8');
     return JSON.parse(jsonString) as TokenPayload;
-  } catch (error) {
+  } catch {
     return null;
   }
 }

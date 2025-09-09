@@ -43,7 +43,7 @@ export default function VerifyEmailPage() {
         setStatus('error');
         setMessage(data.message || 'Verification failed');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setMessage('Network error. Please try again.');
     }

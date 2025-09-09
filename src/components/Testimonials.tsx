@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { StarIcon } from '@heroicons/react/24/solid';
 
 const Testimonials: React.FC = () => {
@@ -82,9 +83,11 @@ const Testimonials: React.FC = () => {
               
               {/* Author */}
               <div className="flex items-center">
-                <img
+                <Image
                   src={testimonial.avatar}
                   alt={testimonial.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 rounded-full mr-4"
                 />
                 <div>
@@ -118,9 +121,11 @@ const Testimonials: React.FC = () => {
                 href="/apple-waitlist" 
                 className="inline-block transition-transform hover:scale-105"
               >
-                <img
+                <Image
                   src="/app_store_badge.png"
                   alt="Download on the App Store"
+                  width={180}
+                  height={60}
                   className="h-12 w-auto"
                 />
               </a>
@@ -128,9 +133,11 @@ const Testimonials: React.FC = () => {
                 href="/android-waitlist" 
                 className="inline-block transition-transform hover:scale-105"
               >
-                <img
+                <Image
                   src="/play_store_badge.png"
                   alt="Get it on Google Play"
+                  width={180}
+                  height={60}
                   className="h-12 w-auto"
                 />
               </a>

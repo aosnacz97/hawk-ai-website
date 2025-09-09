@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { 
   DevicePhoneMobileIcon, 
   UserIcon, 
@@ -110,9 +111,11 @@ const HowItWorks: React.FC = () => {
                 href="/apple-waitlist" 
                 className="inline-block transition-transform hover:scale-105"
               >
-                <img
+                <Image
                   src="/app_store_badge.png"
                   alt="Download on the App Store"
+                  width={180}
+                  height={60}
                   className="h-12 w-auto"
                 />
               </a>
@@ -120,9 +123,11 @@ const HowItWorks: React.FC = () => {
                 href="/android-waitlist" 
                 className="inline-block transition-transform hover:scale-105"
               >
-                <img
+                <Image
                   src="/play_store_badge.png"
                   alt="Get it on Google Play"
+                  width={180}
+                  height={60}
                   className="h-12 w-auto"
                 />
               </a>

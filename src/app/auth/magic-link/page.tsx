@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { CheckCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
@@ -21,9 +21,9 @@ export default function MagicLinkPage() {
     }
 
     verifyMagicLink(token);
-  }, [searchParams]);
+  }, [searchParams, verifyMagicLink]);
 
-  const verifyMagicLink = async (token: string) => {
+  const verifyMagicLink = useCallback(async (token: string) => {
     try {
       const response = await fetch('/api/auth/verify-magic-link', {
         method: 'POST',
@@ -53,11 +53,11 @@ export default function MagicLinkPage() {
         setStatus('error');
         setMessage(data.message || 'Magic link verification failed');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setMessage('Network error. Please try again.');
     }
-  };
+  }, [router]);
 
   const handleContinue = () => {
     router.push('/');

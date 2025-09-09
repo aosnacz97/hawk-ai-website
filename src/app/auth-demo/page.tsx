@@ -57,7 +57,7 @@ export default function AuthDemoPage() {
                   Email Verification
                 </h2>
                 <p className="text-gray-600">
-                  Send a verification email to confirm a user's email address
+                  Send a verification email to confirm a user&apos;s email address
                 </p>
               </div>
               <EmailVerification />
@@ -71,7 +71,7 @@ export default function AuthDemoPage() {
                   Magic Link Login
                 </h2>
                 <p className="text-gray-600">
-                  Send a secure login link that doesn't require a password
+                  Send a secure login link that doesn&apos;t require a password
                 </p>
               </div>
               <MagicLinkLogin />
