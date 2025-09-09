@@ -11,18 +11,6 @@ export default function MagicLinkPage() {
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
 
-  useEffect(() => {
-    const token = searchParams.get('token');
-    
-    if (!token) {
-      setStatus('error');
-      setMessage('No magic link token provided');
-      return;
-    }
-
-    verifyMagicLink(token);
-  }, [searchParams, verifyMagicLink]);
-
   const verifyMagicLink = useCallback(async (token: string) => {
     try {
       const response = await fetch('/api/auth/verify-magic-link', {
@@ -58,6 +46,18 @@ export default function MagicLinkPage() {
       setMessage('Network error. Please try again.');
     }
   }, [router]);
+
+  useEffect(() => {
+    const token = searchParams.get('token');
+    
+    if (!token) {
+      setStatus('error');
+      setMessage('No magic link token provided');
+      return;
+    }
+
+    verifyMagicLink(token);
+  }, [searchParams, verifyMagicLink]);
 
   const handleContinue = () => {
     router.push('/');

@@ -49,7 +49,7 @@ export class RateLimiter {
     
     const key = this.getKey(request);
     const now = Date.now();
-    const _windowStart = now - this.config.windowMs;
+    const windowStart = now - this.config.windowMs; // eslint-disable-line @typescript-eslint/no-unused-vars
 
     const entry = rateLimitStore.get(key);
     

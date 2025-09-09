@@ -48,7 +48,7 @@ export class EnterpriseRateLimiter {
 
   private detectTier(request: Request): string {
     // Detect user tier based on headers, IP, or other factors
-    const _userAgent = request.headers.get('user-agent') || '';
+    const userAgent = request.headers.get('user-agent') || ''; // eslint-disable-line @typescript-eslint/no-unused-vars
     const forwarded = request.headers.get('x-forwarded-for') || '';
     
     // Premium users (you can implement your own logic)

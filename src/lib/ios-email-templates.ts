@@ -10,7 +10,7 @@ interface IOSEmailTemplateProps {
 
 export function getIOSVerificationEmailTemplate({
   name = 'User',
-  email: _email,
+  email, // eslint-disable-line @typescript-eslint/no-unused-vars
   verificationUrl,
   appName = 'Ease Up',
   fallbackWebUrl
@@ -83,7 +83,7 @@ export function getIOSVerificationEmailTemplate({
 
 export function getIOSMagicLinkEmailTemplate({
   name = 'User',
-  email: _email,
+  email, // eslint-disable-line @typescript-eslint/no-unused-vars
   magicLinkUrl,
   appName = 'Ease Up',
   fallbackWebUrl
