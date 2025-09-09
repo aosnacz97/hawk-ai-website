@@ -4,7 +4,7 @@ import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { CheckCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
-export default function VerifyEmailPage() {
+function VerifyEmailContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
@@ -13,7 +13,7 @@ export default function VerifyEmailPage() {
 
   useEffect(() => {
     const token = searchParams.get('token');
-    
+
     if (!token) {
       setStatus('error');
       setMessage('No verification token provided');
@@ -55,9 +55,8 @@ export default function VerifyEmailPage() {
   };
 
   return (
-    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Email Verification</h1>
         </div>
@@ -112,8 +111,15 @@ export default function VerifyEmailPage() {
             </div>
           )}
         </div>
-        </div>
       </div>
+    </div>
+  );
+}
+
+export default function VerifyEmailPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+      <VerifyEmailContent />
     </Suspense>
   );
 }
