@@ -23,7 +23,7 @@ export default function EmailVerification({ onVerificationComplete, onClose }: E
     setMessage('');
 
     try {
-      const response = await fetch('/api/auth/send-verification', {
+      const response = await fetch('/api/auth/send-verification-supabase', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

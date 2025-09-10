@@ -134,8 +134,10 @@ export async function POST(request: NextRequest) {
       verificationToken
     );
     
-    // Create fallback web URL
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    // Create fallback web URL with dynamic host detection
+    const host = request.headers.get('host') || 'localhost:3000';
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || `${protocol}://${host}`;
     const isProduction = process.env.NODE_ENV === 'production';
     const secureUrl = isProduction ? baseUrl.replace('http://', 'https://') : baseUrl;
     const fallbackWebUrl = `${secureUrl}/verify-email?token=${verificationToken}`;

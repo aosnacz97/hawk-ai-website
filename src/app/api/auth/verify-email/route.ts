@@ -9,9 +9,15 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
 export async function POST(request: NextRequest) {
   try {
     const { token } = await request.json();
+    
+    // Debug logging
+    console.log('Verify email request received');
+    console.log('Token length:', token ? token.length : 'undefined');
+    console.log('Token preview:', token ? token.substring(0, 20) + '...' : 'undefined');
 
     // Validate required fields
     if (!token) {
+      console.log('No token provided');
       return NextResponse.json(
         { message: 'Verification token is required' },
         { status: 400 }
@@ -20,8 +26,10 @@ export async function POST(request: NextRequest) {
 
     // Validate token
     const tokenValidation = isTokenValid(token);
+    console.log('Token validation result:', tokenValidation);
     
     if (!tokenValidation.valid) {
+      console.log('Token validation failed:', tokenValidation.error);
       return NextResponse.json(
         { message: tokenValidation.error || 'Invalid verification token' },
         { status: 400 }

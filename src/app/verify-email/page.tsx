@@ -14,7 +14,13 @@ function VerifyEmailContent() {
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    const token = searchParams.get('token');
+    // Check for both 'token' and 'code' parameters for compatibility
+    const token = searchParams.get('token') || searchParams.get('code');
+
+    // Debug logging for troubleshooting
+    console.log('URL search params:', searchParams.toString());
+    console.log('Token from URL:', token);
+    console.log('Full URL:', typeof window !== 'undefined' ? window.location.href : 'SSR');
 
     if (!token) {
       setStatus('error');
@@ -27,15 +33,26 @@ function VerifyEmailContent() {
 
   const verifyEmail = async (token: string) => {
     try {
-      const response = await fetch('/api/auth/verify-email', {
+      console.log('Attempting to verify token:', token.substring(0, 20) + '...');
+      
+      // Determine if this is a Supabase code or custom token
+      const isSupabaseCode = token.includes('-') && token.length === 36; // UUID format
+      const endpoint = isSupabaseCode ? '/api/auth/verify-email-supabase' : '/api/auth/verify-email';
+      const payload = isSupabaseCode ? { code: token } : { token };
+      
+      console.log('Using endpoint:', endpoint);
+      console.log('Payload:', payload);
+      
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ token }),
+        body: JSON.stringify(payload),
       });
 
       const data = await response.json();
+      console.log('Verification response:', { status: response.status, data });
 
       if (response.ok) {
         setStatus('success');
@@ -45,7 +62,8 @@ function VerifyEmailContent() {
         setStatus('error');
         setMessage(data.message || 'Verification failed');
       }
-    } catch {
+    } catch (error) {
+      console.error('Verification error:', error);
       setStatus('error');
       setMessage('Network error. Please try again.');
     }
@@ -194,7 +212,7 @@ function VerifyEmailContent() {
                   <div className="space-y-3">
                     <button
                       onClick={() => router.push('/auth/login')}
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium py-3 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-sm"
+                      className="w-full bg-blue-600 text-white font-medium py-3 px-6 rounded-xl hover:bg-blue-700 transition-all duration-200"
                     >
                       Request New Verification
                     </button>

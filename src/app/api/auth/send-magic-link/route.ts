@@ -38,8 +38,10 @@ export async function POST(request: NextRequest) {
     // Generate magic link token
     const magicLinkToken = generateAuthToken(sanitizedEmail, 'magic_link');
     
-    // Create magic link URL
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    // Create magic link URL with dynamic host detection
+    const host = request.headers.get('host') || 'localhost:3000';
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || `${protocol}://${host}`;
     const magicLinkUrl = `${baseUrl}/auth/magic-link?token=${magicLinkToken}`;
 
     // Send magic link email

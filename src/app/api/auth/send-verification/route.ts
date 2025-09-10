@@ -38,8 +38,10 @@ export async function POST(request: NextRequest) {
     // Generate verification token
     const verificationToken = generateAuthToken(sanitizedEmail, 'verification');
     
-    // Create verification URL
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    // Create verification URL with dynamic host detection
+    const host = request.headers.get('host') || 'localhost:3000';
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || `${protocol}://${host}`;
     const verificationUrl = `${baseUrl}/verify-email?token=${verificationToken}`;
 
     // Send verification email
