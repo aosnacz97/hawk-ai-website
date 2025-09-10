@@ -99,9 +99,22 @@ function VerifyEmailContent() {
             <h1 className="text-3xl font-bold text-gray-900 mb-3">
               Email Verification
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed mb-3">
               Confirming your email address for secure access
             </p>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="text-left">
+                  <p className="text-sm font-medium text-amber-800 mb-1">
+                    Account Access Requires Verification
+                  </p>
+                  <p className="text-xs text-amber-700">
+                    You cannot sign in or access your account until your email address is verified for security purposes.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Status Card */}
@@ -143,9 +156,17 @@ function VerifyEmailContent() {
                       has been verified and your account is now active.
                     </p>
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-                      <p className="text-sm text-green-800">
-                        ✅ Welcome to Ease Up! You now have full access to all posture correction features and personalized exercise programs.
-                      </p>
+                      <div className="flex items-start space-x-3">
+                        <div className="text-green-600 mt-0.5">✅</div>
+                        <div className="text-left">
+                          <p className="text-sm text-green-800 mb-1">
+                            Welcome to Ease Up! Your email is now verified.
+                          </p>
+                          <p className="text-xs text-green-700">
+                            You can now sign in and access all posture correction features and personalized exercise programs.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <button
@@ -193,8 +214,11 @@ function VerifyEmailContent() {
           <div className="mt-8 text-center">
             <div className="bg-white/60 backdrop-blur-sm rounded-xl border border-gray-200/50 p-6">
               <h3 className="text-sm font-medium text-gray-900 mb-2">Need Help?</h3>
-              <p className="text-xs text-gray-500 leading-relaxed mb-3">
+              <p className="text-xs text-gray-500 leading-relaxed mb-2">
                 Verification links expire after 48 hours. If you&apos;re having trouble, check your spam folder or contact our support team.
+              </p>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                <strong>Note:</strong> Account access is restricted until email verification is completed.
               </p>
               <Link
                 href="mailto:support@ease-up.app"

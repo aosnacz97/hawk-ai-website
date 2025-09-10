@@ -61,9 +61,22 @@ export default function LoginPage() {
             <h1 className="text-3xl font-bold text-gray-900 mb-3">
               Welcome to Ease Up
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed mb-4">
               Your journey to better posture and pain relief starts here
             </p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="text-left">
+                  <p className="text-sm font-medium text-blue-800 mb-1">
+                    Secure Account Access
+                  </p>
+                  <p className="text-xs text-blue-700">
+                    Email verification is required before you can sign in and access your personalized posture correction program.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Tab Navigation */}
