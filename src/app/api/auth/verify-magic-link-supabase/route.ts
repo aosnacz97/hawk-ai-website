@@ -8,7 +8,13 @@ if (!supabaseUrl || !supabaseServiceKey) {
   throw new Error('Missing Supabase environment variables for server-side operations');
 }
 
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+// Use admin client for server-side operations
+const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+  auth: {
+    autoRefreshToken: false,
+    persistSession: false
+  }
+});
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,10 +36,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify the magic link using Supabase
-    const { data, error } = await supabase.auth.verifyOtp({
-      email: '', // Email will be extracted from the token
-      token: code,
+    // Verify the magic link using Supabase admin API
+    const { data, error } = await supabase.auth.admin.verifyOtp({
+      token_hash: code,
       type: 'email'
     });
 
