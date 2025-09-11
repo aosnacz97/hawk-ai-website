@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const { code, type = 'email' } = await request.json();
     
     // Debug logging
-    console.log('Supabase verify email request received');
+    console.log('Supabase verify magic link request received');
     console.log('Code:', code);
     console.log('Type:', type);
     console.log('Code length:', code?.length);
@@ -30,32 +30,32 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify the email using Supabase
+    // Verify the magic link using Supabase
     const { data, error } = await supabase.auth.verifyOtp({
       token: code,
       type: 'email'
     });
 
     if (error) {
-      console.log('Supabase verification failed:', error.message);
+      console.log('Supabase magic link verification failed:', error.message);
       console.log('Error details:', error);
       return NextResponse.json(
-        { message: error.message || 'Email link is invalid or has expired' },
+        { message: error.message || 'Magic link is invalid or has expired' },
         { status: 400 }
       );
     }
 
-    console.log('Supabase verification successful:', data);
+    console.log('Supabase magic link verification successful:', data);
 
     return NextResponse.json({ 
-      message: 'Email verified successfully',
+      message: 'Magic link verified successfully',
       email: data.user?.email,
       verified: true,
       user: data.user
     });
 
   } catch (error) {
-    console.error('Supabase verify email error:', error);
+    console.error('Supabase verify magic link error:', error);
     return NextResponse.json(
       { message: 'Internal server error' },
       { status: 500 }

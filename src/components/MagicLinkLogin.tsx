@@ -23,12 +23,12 @@ export default function MagicLinkLogin({ onLoginSuccess, onClose }: MagicLinkLog
     setMessage('');
 
     try {
-      const response = await fetch('/api/auth/send-magic-link', {
+      const response = await fetch('/api/auth/send-magic-link-supabase', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ email }),
       });
 
       const data = await response.json();

@@ -35,10 +35,9 @@ function VerifyEmailContent() {
     try {
       console.log('Attempting to verify token:', token.substring(0, 20) + '...');
       
-      // Determine if this is a Supabase code or custom token
-      const isSupabaseCode = token.includes('-') && token.length === 36; // UUID format
-      const endpoint = isSupabaseCode ? '/api/auth/verify-email-supabase' : '/api/auth/verify-email';
-      const payload = isSupabaseCode ? { code: token } : { token };
+      // Always use Supabase verification endpoint
+      const endpoint = '/api/auth/verify-email-supabase';
+      const payload = { code: token };
       
       console.log('Using endpoint:', endpoint);
       console.log('Payload:', payload);

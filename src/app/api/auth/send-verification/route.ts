@@ -3,6 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { generateAuthToken, isValidEmail, sanitizeEmail } from '@/lib/auth-utils';
 import { getVerificationEmailTemplate } from '@/lib/email-templates';
 
+// DEPRECATED: This endpoint is deprecated. Use /api/auth/send-verification-supabase instead.
+// This endpoint will be removed in a future version.
+
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
