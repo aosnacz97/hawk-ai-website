@@ -8,13 +8,8 @@ if (!supabaseUrl || !supabaseServiceKey) {
   throw new Error('Missing Supabase environment variables for server-side operations');
 }
 
-// Use admin client for server-side operations
-const supabase = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false
-  }
-});
+// Use service role client for server-side operations
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 export async function POST(request: NextRequest) {
   try {
@@ -36,8 +31,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify the email using Supabase admin API
-    const { data, error } = await supabase.auth.admin.verifyOtp({
+    // Verify the email using Supabase
+    // For email verification links, we need to use token_hash parameter
+    const { data, error } = await supabase.auth.verifyOtp({
       token_hash: code,
       type: 'email'
     });
