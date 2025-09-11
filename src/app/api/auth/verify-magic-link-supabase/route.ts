@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
 
     // Verify the magic link using Supabase
     const { data, error } = await supabase.auth.verifyOtp({
+      email: '', // Email will be extracted from the token
       token: code,
       type: 'email'
     });
