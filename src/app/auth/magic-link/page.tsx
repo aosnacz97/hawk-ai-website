@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, Suspense, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { CheckCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { supabase } from '@/lib/supabase';
 
 function MagicLinkContent() {
   const searchParams = useSearchParams();
@@ -13,68 +14,60 @@ function MagicLinkContent() {
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
 
-  useEffect(() => {
-    // Check for both 'token' and 'code' parameters for compatibility
-    const token = searchParams.get('token') || searchParams.get('code');
-
-    // Debug logging for troubleshooting
-    console.log('URL search params:', searchParams.toString());
-    console.log('Token from URL:', token);
-    console.log('Full URL:', typeof window !== 'undefined' ? window.location.href : 'SSR');
-
-    if (!token) {
-      setStatus('error');
-      setMessage('No verification token provided');
-      return;
-    }
-
-    verifyMagicLink(token);
-  }, [searchParams]);
-
-  const verifyMagicLink = async (token: string) => {
+  const handleAuthCallback = useCallback(async () => {
     try {
-      console.log('Attempting to verify magic link token:', token.substring(0, 20) + '...');
+      // Get the session from the URL hash/fragment
+      const { data, error } = await supabase.auth.getSession();
       
-      // Always use Supabase magic link verification endpoint
-      const endpoint = '/api/auth/verify-magic-link-supabase';
-      const payload = { code: token };
-      
-      console.log('Using endpoint:', endpoint);
-      console.log('Payload:', payload);
-      
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      if (error) {
+        console.error('Auth callback error:', error);
+        setStatus('error');
+        setMessage(error.message || 'Authentication failed');
+        return;
+      }
 
-      const data = await response.json();
-      console.log('Magic link verification response:', { status: response.status, data });
-
-      if (response.ok) {
+      if (data.session) {
         setStatus('success');
-        setMessage('You have been signed in successfully!');
-        setEmail(data.email);
+        setMessage('Successfully signed in!');
+        setEmail(data.session.user.email || '');
+        
+        // Store the session for the iOS app to pick up
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('supabase_session', JSON.stringify(data.session));
+        }
+        
+        // Redirect to app after a short delay
+        setTimeout(() => {
+          // Try to redirect to the iOS app using a custom URL scheme
+          const appUrl = `easeup://auth/success?session=${encodeURIComponent(JSON.stringify(data.session))}`;
+          window.location.href = appUrl;
+          
+          // Fallback: redirect to home page
+          setTimeout(() => {
+            router.push('/');
+          }, 2000);
+        }, 2000);
       } else {
         setStatus('error');
-        setMessage(data.message || 'Magic link verification failed');
+        setMessage('No valid session found. The magic link may have expired.');
       }
     } catch (error) {
       console.error('Magic link verification error:', error);
       setStatus('error');
       setMessage('Network error. Please try again.');
     }
-  };
+  }, [router]);
+
+  useEffect(() => {
+    handleAuthCallback();
+  }, [handleAuthCallback]);
 
   const handleContinue = () => {
-    // Redirect to dashboard or main app
     router.push('/');
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,7 +84,7 @@ function MagicLinkContent() {
             </Link>
             <Link
               href="/auth/login"
-              className="text-gray-600 hover:text-green-600 px-4 py-2 text-sm font-medium transition-colors duration-200"
+              className="text-gray-600 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors duration-200"
             >
               ← Back to Sign In
             </Link>
@@ -117,17 +110,17 @@ function MagicLinkContent() {
               Magic Link Sign In
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed mb-3">
-              Secure, password-free authentication
+              Completing your secure sign-in process
             </p>
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
               <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                 <div className="text-left">
-                  <p className="text-sm font-medium text-green-800 mb-1">
-                    Password-Free Security
+                  <p className="text-sm font-medium text-blue-800 mb-1">
+                    Secure Authentication
                   </p>
-                  <p className="text-xs text-green-700">
-                    Magic links provide secure authentication without requiring you to remember passwords.
+                  <p className="text-xs text-blue-700">
+                    You&apos;re being signed in securely. This process is automatic and secure.
                   </p>
                 </div>
               </div>
@@ -140,19 +133,19 @@ function MagicLinkContent() {
               {status === 'loading' && (
                 <div className="text-center">
                   <div className="relative mb-6">
-                    <div className="animate-spin rounded-full h-16 w-16 border-4 border-green-200 border-t-green-600 mx-auto"></div>
+                    <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-200 border-t-blue-600 mx-auto"></div>
                   </div>
                   <h2 className="text-xl font-semibold text-gray-900 mb-3">
-                    Verifying Your Magic Link
+                    Signing You In
                   </h2>
                   <p className="text-gray-600 leading-relaxed">
-                    Please wait while we verify your magic link and sign you in.
+                    Please wait while we complete your secure sign-in process.
                   </p>
                   <div className="mt-6">
                     <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                      <div className="animate-pulse w-2 h-2 bg-green-500 rounded-full"></div>
-                      <div className="animate-pulse w-2 h-2 bg-green-500 rounded-full" style={{ animationDelay: '0.2s' }}></div>
-                      <div className="animate-pulse w-2 h-2 bg-green-500 rounded-full" style={{ animationDelay: '0.4s' }}></div>
+                      <div className="animate-pulse w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <div className="animate-pulse w-2 h-2 bg-blue-500 rounded-full" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="animate-pulse w-2 h-2 bg-blue-500 rounded-full" style={{ animationDelay: '0.4s' }}></div>
                     </div>
                   </div>
                 </div>
@@ -165,10 +158,10 @@ function MagicLinkContent() {
                       <CheckCircleIcon className="h-8 w-8 text-green-600" />
                     </div>
                     <h2 className="text-xl font-semibold text-gray-900 mb-3">
-                      Welcome Back! 🎉
+                      Successfully Signed In! 🎉
                     </h2>
                     <p className="text-gray-600 mb-4">
-                      You have been successfully signed in as{' '}
+                      Welcome back! You&apos;re now signed in as{' '}
                       <span className="font-medium text-gray-900">{email}</span>
                     </p>
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
@@ -176,10 +169,10 @@ function MagicLinkContent() {
                         <div className="text-green-600 mt-0.5">✅</div>
                         <div className="text-left">
                           <p className="text-sm text-green-800 mb-1">
-                            Magic link authentication successful!
+                            Redirecting to Ease Up App
                           </p>
                           <p className="text-xs text-green-700">
-                            You can now access all your posture correction features and personalized exercise programs.
+                            You should be automatically redirected to the Ease Up app. If not, tap the button below.
                           </p>
                         </div>
                       </div>
@@ -189,7 +182,7 @@ function MagicLinkContent() {
                     onClick={handleContinue}
                     className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-medium py-3 px-6 rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-200 shadow-sm"
                   >
-                    Continue to App
+                    Open Ease Up App
                   </button>
                 </div>
               )}
@@ -210,9 +203,9 @@ function MagicLinkContent() {
                   <div className="space-y-3">
                     <button
                       onClick={() => router.push('/auth/login')}
-                      className="w-full bg-green-600 text-white font-medium py-3 px-6 rounded-xl hover:bg-green-700 transition-all duration-200"
+                      className="w-full bg-blue-600 text-white font-medium py-3 px-6 rounded-xl hover:bg-blue-700 transition-all duration-200"
                     >
-                      Request New Magic Link
+                      Try Again
                     </button>
                     <button
                       onClick={() => router.push('/')}
@@ -231,14 +224,14 @@ function MagicLinkContent() {
             <div className="bg-white/60 backdrop-blur-sm rounded-xl border border-gray-200/50 p-6">
               <h3 className="text-sm font-medium text-gray-900 mb-2">Need Help?</h3>
               <p className="text-xs text-gray-500 leading-relaxed mb-2">
-                Magic links expire after 24 hours. If you&apos;re having trouble, check your spam folder or request a new magic link.
+                Magic links expire after 1 hour. If you&apos;re having trouble, try requesting a new magic link.
               </p>
               <p className="text-xs text-gray-500 leading-relaxed">
-                <strong>Note:</strong> Magic links are single-use and will expire after being used.
+                <strong>Note:</strong> Make sure you have the Ease Up app installed on your device.
               </p>
               <Link
                 href="mailto:support@ease-up.app"
-                className="inline-flex items-center text-xs text-green-600 hover:text-green-700 underline"
+                className="inline-flex items-center text-xs text-blue-600 hover:text-blue-700 underline"
               >
                 support@ease-up.app
               </Link>
