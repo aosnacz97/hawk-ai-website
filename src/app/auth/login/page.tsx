@@ -132,11 +132,11 @@ export default function LoginPage() {
           <div className="mt-12 text-center">
             <p className="text-sm text-gray-500 mb-4">
               By continuing, you agree to our{' '}
-              <Link href="#" className="text-blue-600 hover:text-blue-700 underline">
+              <Link href="https://app.termly.io/policy-viewer/policy.html?policyUUID=cb723aeb-378d-4323-8a45-ce047a08f0e7" className="text-blue-600 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">
                 Terms of Service
               </Link>{' '}
               and{' '}
-              <Link href="#" className="text-blue-600 hover:text-blue-700 underline">
+              <Link href="https://app.termly.io/policy-viewer/policy.html?policyUUID=cc219bc3-a2ff-42c3-88df-2e01c4010ade" className="text-blue-600 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">
                 Privacy Policy
               </Link>
             </p>

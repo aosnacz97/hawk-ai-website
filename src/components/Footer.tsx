@@ -15,12 +15,12 @@ const Footer: React.FC = () => {
       { name: 'Help Center', href: '#help' },
       { name: 'Contact Us', href: '#contact' },
       { name: 'FAQ', href: '#faq' },
-      { name: 'Privacy Policy', href: '#privacy' }
+      { name: 'Privacy Policy', href: 'https://app.termly.io/policy-viewer/policy.html?policyUUID=cc219bc3-a2ff-42c3-88df-2e01c4010ade' }
     ],
     company: [
       { name: 'About Us', href: '#about' },
       { name: 'Careers', href: '#careers' },
-      { name: 'Terms of Service', href: '#terms' }
+      { name: 'Terms of Service', href: 'https://app.termly.io/policy-viewer/policy.html?policyUUID=cb723aeb-378d-4323-8a45-ce047a08f0e7' }
     ]
   };
 
@@ -180,10 +180,10 @@ const Footer: React.FC = () => {
               © {currentYear} Ease Up. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <a href="#privacy" className="hover:text-white transition-colors duration-200">
+              <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=cc219bc3-a2ff-42c3-88df-2e01c4010ade" className="hover:text-white transition-colors duration-200" target="_blank" rel="noopener noreferrer">
                 Privacy Policy
               </a>
-              <a href="#terms" className="hover:text-white transition-colors duration-200">
+              <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=cb723aeb-378d-4323-8a45-ce047a08f0e7" className="hover:text-white transition-colors duration-200" target="_blank" rel="noopener noreferrer">
                 Terms of Service
               </a>
               <a href="#cookies" className="hover:text-white transition-colors duration-200">
