@@ -3,12 +3,11 @@
 import { useEffect, useState, Suspense, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { CheckCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import { supabase } from '@/lib/supabase';
 
 function MagicLinkContent() {
-  const searchParams = useSearchParams();
   const router = useRouter();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [message, setMessage] = useState('');
@@ -16,6 +15,13 @@ function MagicLinkContent() {
 
   const handleAuthCallback = useCallback(async () => {
     try {
+      // Check if Supabase is available
+      if (!supabase) {
+        setStatus('error');
+        setMessage('Authentication service is not configured. Please contact support.');
+        return;
+      }
+
       // Get the session from the URL hash/fragment
       const { data, error } = await supabase.auth.getSession();
       
