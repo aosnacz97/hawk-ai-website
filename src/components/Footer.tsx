@@ -7,19 +7,14 @@ const Footer: React.FC = () => {
   const footerLinks = {
     product: [
       { name: 'Features', href: '#features' },
-      { name: 'How It Works', href: '#how-it-works' },
-      { name: 'Pricing', href: '#pricing' },
-      { name: 'Download', href: '#download' }
+      { name: 'How It Works', href: '#how-it-works' }
     ],
     support: [
-      { name: 'Help Center', href: '#help' },
       { name: 'Contact Us', href: '#contact' },
       { name: 'FAQ', href: '#faq' },
       { name: 'Privacy Policy', href: 'https://app.termly.io/policy-viewer/policy.html?policyUUID=cc219bc3-a2ff-42c3-88df-2e01c4010ade' }
     ],
     company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Careers', href: '#careers' },
       { name: 'Terms of Service', href: 'https://app.termly.io/policy-viewer/policy.html?policyUUID=cb723aeb-378d-4323-8a45-ce047a08f0e7' }
     ]
   };
