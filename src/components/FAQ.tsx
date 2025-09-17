@@ -8,28 +8,28 @@ interface FAQItem {
 const FAQ: React.FC = () => {
   const faqItems: FAQItem[] = [
     {
-      question: "How long does it take to see results?",
-      answer: "Most users notice improvement within 7-14 days of consistent use. For best results, we recommend using the app for at least 10 minutes daily."
+      question: "How long does it take to see vision improvement?",
+      answer: "Most users notice reduced eye strain within 7-14 days of consistent use. For significant vision improvement, we recommend using the app for at least 5 minutes daily over 6-8 weeks."
     },
     {
-      question: "Is the app suitable for all ages?",
-      answer: "Yes, Ease Up is designed for users of all ages and fitness levels. Our exercises are gentle and can be modified to suit individual needs."
+      question: "Is Hawk AI suitable for all ages?",
+      answer: "Yes, Hawk AI is designed for users of all ages. Our eye exercises are gentle and scientifically proven to be safe. However, children under 13 should use the app with parental supervision."
     },
     {
-      question: "Do I need any equipment?",
-      answer: "No equipment required! Just your smartphone and a few minutes each day. All exercises use your body weight and can be done anywhere."
+      question: "Do I need any equipment for the eye exercises?",
+      answer: "No equipment required! Just your smartphone and a few minutes each day. All eye exercises can be done anywhere using just your device screen and natural lighting."
     },
     {
-      question: "How does the posture tracking work?",
-      answer: "Our advanced AI technology uses your phone's camera to analyze your posture in real-time, providing instant feedback and personalized recommendations."
+      question: "How does the 20-20-20 rule notification work?",
+      answer: "Our smart notification system reminds you every 20 minutes to look at something 20 feet away for 20 seconds. This helps reduce digital eye strain and prevents computer vision syndrome."
     },
     {
-      question: "Can I use the app if I have existing back pain?",
-      answer: "Yes, but we recommend consulting with your healthcare provider first. Ease Up is designed to help prevent and relieve mild posture-related discomfort."
+      question: "Can I use the app if I wear glasses or contacts?",
+      answer: "Absolutely! Hawk AI works great for people with glasses, contacts, or even those who've had eye surgery. The exercises complement your existing vision correction and can help reduce strain."
     },
     {
-      question: "Is my data secure and private?",
-      answer: "Absolutely. We take your privacy seriously. All data is encrypted and stored securely. We never share your personal information with third parties."
+      question: "Is my eye health data secure and private?",
+      answer: "Yes, your privacy is our priority. All eye health data is encrypted and stored securely on your device. We never share your personal vision information with third parties."
     }
   ];
 
@@ -42,7 +42,7 @@ const FAQ: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to know about Ease Up. Can&apos;t find what you&apos;re looking for? 
+            Everything you need to know about Hawk AI. Can&apos;t find what you&apos;re looking for? 
             <a href="#contact" className="text-blue-600 hover:text-blue-700 font-medium ml-1">
               Get in touch with us.
             </a>
@@ -75,7 +75,7 @@ const FAQ: React.FC = () => {
               Still have questions?
             </h3>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Our support team is here to help you get the most out of Ease Up. 
+              Our support team is here to help you get the most out of Hawk AI. 
               We typically respond within 24 hours.
             </p>
             <a

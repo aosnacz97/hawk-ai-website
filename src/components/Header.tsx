@@ -20,13 +20,13 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/ease_up_logo.png"
-              alt="Ease Up Logo"
+              src="/hawkeye_logo.png"
+              alt="Hawk AI Logo"
               width={40}
               height={40}
               className="h-10 w-10 rounded-2xl"
             />
-            <span className="ml-2 text-xl font-bold text-gray-900">Ease Up</span>
+            <span className="ml-2 text-xl font-bold text-gray-900">Hawk AI</span>
           </div>
 
           {/* Desktop Navigation */}

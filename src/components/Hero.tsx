@@ -10,16 +10,16 @@ const Hero: React.FC = () => {
           <div className="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
             <div className="animate-fade-in-up">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Fix Your Posture,
-                <span className="text-gray-900 block">Relieve Pain</span>
-                <span className="text-gray-900 block">Feel Better</span>
+                Strengthen Your Vision,
+                <span className="text-gray-900 block">Protect Your Eyes</span>
+                <span className="text-gray-900 block">See Clearly</span>
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Ease Up provides personalized posture correction and pain relief programs 
-                designed specifically for you. Our AI-powered app analyzes your movement 
-                patterns and creates a customized plan to improve your posture, reduce pain, 
-                and enhance flexibility.
+                Hawk AI provides science-based vision improvement programs and smart 
+                20-20-20 rule notifications. Our AI-powered app creates personalized eye 
+                exercise routines to strengthen your vision, reduce eye strain, and 
+                enhance visual performance.
               </p>
 
               {/* App Store Badges */}
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
               </div>
 
               <p className="text-sm text-gray-500">
-                Join thousands of users who have transformed their posture and reduced pain with Ease Up
+                Join thousands of users who have improved their vision and reduced eye strain with Hawk AI
               </p>
             </div>
           </div>
@@ -74,8 +74,8 @@ const Hero: React.FC = () => {
             <div className="relative">
               <div className="relative z-10">
                 <Image
-                  src="/ease_up_logo_transparent.png"
-                  alt="Ease Up App Preview"
+                  src="/hawkeye_logo_transparent.png"
+                  alt="Hawk AI App Preview"
                   width={400}
                   height={400}
                   className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"

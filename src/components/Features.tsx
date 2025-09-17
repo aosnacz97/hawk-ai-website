@@ -1,49 +1,49 @@
 import React from 'react';
 import { 
-  UserGroupIcon, 
+  EyeIcon, 
   ChartBarIcon, 
   CogIcon, 
   ShieldCheckIcon,
   ClockIcon,
-  DevicePhoneMobileIcon
+  BellIcon
 } from '@heroicons/react/24/outline';
 
 const Features: React.FC = () => {
   const features = [
     {
-      icon: UserGroupIcon,
-      title: 'Personalized Programs',
-      description: 'Our AI analyzes your unique posture patterns and creates a customized program tailored specifically to your needs and goals.',
+      icon: EyeIcon,
+      title: 'Science-Based Eye Exercises',
+      description: 'Our AI creates personalized vision improvement programs with scientifically-proven exercises to strengthen your eyes and enhance visual performance.',
       color: 'blue'
     },
     {
       icon: ChartBarIcon,
-      title: 'Progress Tracking',
-      description: 'Monitor your improvement with detailed analytics, progress charts, and milestone achievements to stay motivated.',
+      title: 'Vision Progress Tracking',
+      description: 'Monitor your eye health improvement with detailed analytics, visual acuity measurements, and milestone achievements.',
       color: 'green'
     },
     {
-      icon: CogIcon,
-      title: 'Smart AI Technology',
-      description: 'Advanced machine learning algorithms continuously adapt your program based on your progress and feedback.',
+      icon: BellIcon,
+      title: '20-20-20 Rule Notifications',
+      description: 'Smart reminders every 20 minutes to look at something 20 feet away for 20 seconds, protecting your eyes from digital strain.',
       color: 'purple'
     },
     {
       icon: ShieldCheckIcon,
-      title: 'Expert Guidance',
-      description: 'Access to professional physiotherapist-approved exercises and techniques for safe, effective posture correction.',
+      title: 'Eye Health Protection',
+      description: 'Access to optometrist-approved techniques and exercises for safe, effective vision improvement and eye strain prevention.',
       color: 'red'
     },
     {
       icon: ClockIcon,
-      title: 'Quick Sessions',
-      description: 'Efficient 5-15 minute daily sessions that fit into your busy schedule while delivering maximum results.',
+      title: 'Quick Eye Workouts',
+      description: 'Efficient 3-10 minute daily eye exercise sessions that fit into your busy schedule while strengthening your vision.',
       color: 'yellow'
     },
     {
-      icon: DevicePhoneMobileIcon,
-      title: 'Mobile Convenience',
-      description: 'Use anywhere, anytime with our mobile app. No equipment needed - just you and your smartphone.',
+      icon: CogIcon,
+      title: 'Smart Vision AI',
+      description: 'Advanced algorithms that adapt your eye exercise program based on your progress, screen time patterns, and visual needs.',
       color: 'indigo'
     }
   ];
@@ -66,11 +66,11 @@ const Features: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Why Choose Ease Up?
+            Why Choose Hawk AI?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Advanced AI technology meets professional posture correction expertise to deliver 
-            personalized results that transform your daily life.
+            Advanced AI technology meets proven vision improvement science to deliver 
+            personalized eye care that strengthens your vision and protects your eye health.
           </p>
         </div>
 
@@ -100,17 +100,17 @@ const Features: React.FC = () => {
         <div className="mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-8 md:p-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">87%</div>
-              <div className="text-gray-200">Pain Reduction</div>
-              <div className="text-sm text-gray-400 mt-1">Average improvement in 30 days</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">92%</div>
+              <div className="text-gray-200">Eye Strain Reduction</div>
+              <div className="text-sm text-gray-400 mt-1">Average improvement in 21 days</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">50K+</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">35K+</div>
               <div className="text-gray-200">Active Users</div>
-              <div className="text-sm text-gray-400 mt-1">Worldwide community</div>
+              <div className="text-sm text-gray-400 mt-1">Vision improvement community</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">4.8★</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">4.9★</div>
               <div className="text-gray-200">App Rating</div>
               <div className="text-sm text-gray-400 mt-1">From thousands of reviews</div>
             </div>

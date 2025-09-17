@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { 
   DevicePhoneMobileIcon, 
-  UserIcon, 
+  EyeIcon, 
   ChartBarIcon, 
-  SparklesIcon
+  BellIcon
 } from '@heroicons/react/24/outline';
 
 const HowItWorks: React.FC = () => {
@@ -12,29 +12,29 @@ const HowItWorks: React.FC = () => {
     {
       number: '1',
       icon: DevicePhoneMobileIcon,
-      title: 'Download Ease Up',
-      description: 'Install our posture correction app from the App Store or Google Play Store',
+      title: 'Download Hawk AI',
+      description: 'Install our vision improvement app from the App Store or Google Play Store',
       color: 'blue'
     },
     {
       number: '2',
-      icon: UserIcon,
-      title: 'Complete Assessment',
-      description: 'Take a quick posture assessment to help our AI understand your current condition',
+      icon: EyeIcon,
+      title: 'Vision Assessment',
+      description: 'Take a quick eye health assessment to help our AI understand your visual needs and habits',
       color: 'green'
     },
     {
       number: '3',
-      icon: ChartBarIcon,
-      title: 'Get Personalized Plan',
-      description: 'Receive your customized program with exercises and techniques tailored to your needs',
+      icon: BellIcon,
+      title: 'Enable Smart Notifications',
+      description: 'Set up 20-20-20 rule reminders and receive your personalized eye exercise program',
       color: 'purple'
     },
     {
       number: '4',
-      icon: SparklesIcon,
-      title: 'Track Progress',
-      description: 'Monitor your improvement with detailed analytics and celebrate your achievements',
+      icon: ChartBarIcon,
+      title: 'Track Vision Progress',
+      description: 'Monitor your eye health improvement with detailed analytics and visual performance metrics',
       color: 'orange'
     }
   ];
@@ -55,11 +55,11 @@ const HowItWorks: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            How Ease Up Works
+            How Hawk AI Works
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get professional posture correction and pain relief in 4 simple steps. 
-            Our AI-powered system makes it easy to transform your posture and feel better.
+            Improve your vision and protect your eye health in 4 simple steps. 
+            Our AI-powered system makes it easy to strengthen your vision and reduce eye strain.
           </p>
         </div>
 
@@ -99,11 +99,11 @@ const HowItWorks: React.FC = () => {
         <div className="mt-20 text-center">
           <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              Ready to Transform Your Posture?
+              Ready to Improve Your Vision?
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join thousands of users who have already improved their posture and reduced pain with Ease Up. 
-              Start your journey to better health today.
+              Join thousands of users who have already strengthened their vision and reduced eye strain with Hawk AI. 
+              Start your journey to better eye health today.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -134,7 +134,7 @@ const HowItWorks: React.FC = () => {
             </div>
             
             <p className="text-sm text-gray-500 mt-4">
-              Free to download • No equipment needed • Start seeing results in 7 days
+              Free to download • No equipment needed • Improve vision in 14 days
             </p>
           </div>
         </div>

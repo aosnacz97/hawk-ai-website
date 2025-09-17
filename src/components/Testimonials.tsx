@@ -6,45 +6,45 @@ const Testimonials: React.FC = () => {
   const testimonials = [
     {
       name: 'Sarah M.',
-      role: 'Office Worker',
-      content: 'Ease Up completely transformed my posture! After 8 hours at a desk, I used to have terrible back pain. Now I feel so much better and more confident.',
+      role: 'Graphic Designer',
+      content: 'Hawk AI completely transformed my eye health! After 10 hours staring at screens, I used to have terrible eye strain. The 20-20-20 reminders and eye exercises made all the difference.',
       rating: 5,
-      avatar: '/ease_up_logo_transparent.png'
+      avatar: '/hawkeye_logo_transparent.png'
     },
     {
       name: 'Mike R.',
       role: 'Software Developer',
-      content: 'The personalized program is incredible. The AI really understands my specific posture issues and the exercises are perfect for my schedule. Pain reduced by 90% in just 3 weeks!',
+      content: 'The personalized eye exercise program is incredible. The AI really understands my screen time patterns and the exercises fit perfectly into my coding breaks. Eye strain reduced by 95%!',
       rating: 5,
-      avatar: '/ease_up_logo_transparent.png'
+      avatar: '/hawkeye_logo_transparent.png'
     },
     {
       name: 'Jennifer L.',
-      role: 'Yoga Instructor',
-      content: 'As a yoga instructor, I\'m very particular about posture apps. Ease Up is the real deal - professional, effective, and the progress tracking keeps me motivated.',
+      role: 'Vision Therapist',
+      content: 'As a vision therapist, I\'m very particular about eye exercise apps. Hawk AI is the real deal - scientifically sound, effective, and the progress tracking helps my patients.',
       rating: 5,
-      avatar: '/ease_up_logo_transparent.png'
+      avatar: '/hawkeye_logo_transparent.png'
     },
     {
       name: 'David K.',
-      role: 'Construction Worker',
-      content: 'After years of back pain from heavy lifting, Ease Up helped me understand proper posture and gave me exercises I can do anywhere. Life changing!',
+      role: 'Truck Driver',
+      content: 'After years of eye fatigue from long driving shifts, Hawk AI helped me understand proper eye care. The exercises I can do during rest stops have been life changing!',
       rating: 5,
-      avatar: '/ease_up_logo_transparent.png'
+      avatar: '/hawkeye_logo_transparent.png'
     },
     {
       name: 'Emma T.',
       role: 'Student',
-      content: 'Perfect for students! Quick sessions between classes, and the app reminds me to check my posture. My neck pain is gone and I feel so much more energetic.',
+      content: 'Perfect for students! Quick eye exercises between study sessions, and the app reminds me to take vision breaks. My eye strain is gone and I can focus so much better.',
       rating: 5,
-      avatar: '/ease_up_logo_transparent.png'
+      avatar: '/hawkeye_logo_transparent.png'
     },
     {
       name: 'Robert P.',
       role: 'Retired',
-      content: 'At 65, I thought it was too late to fix my posture. Ease Up proved me wrong! The gentle exercises are perfect for my age and the results are amazing.',
+      content: 'At 67, I thought my declining vision was inevitable. Hawk AI proved me wrong! The gentle eye exercises are perfect for my age and my visual clarity has improved.',
       rating: 5,
-      avatar: '/ease_up_logo_transparent.png'
+      avatar: '/hawkeye_logo_transparent.png'
     }
   ];
 
@@ -57,8 +57,8 @@ const Testimonials: React.FC = () => {
             Trusted by Users Worldwide
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See what our community of users has to say about their experience with Ease Up. 
-            Real stories from real people who have transformed their posture and reduced pain.
+            See what our community of users has to say about their experience with Hawk AI. 
+            Real stories from real people who have improved their vision and reduced eye strain.
           </p>
         </div>
 
@@ -108,13 +108,13 @@ const Testimonials: React.FC = () => {
                   <StarIcon key={i} className="w-8 h-8 fill-current" />
                 ))}
               </div>
-              <span className="text-3xl font-bold text-white">4.8</span>
+              <span className="text-3xl font-bold text-white">4.9</span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">
               Excellent App Rating
             </h3>
             <p className="text-lg text-gray-300 mb-6">
-              Based on 2,847 reviews from App Store and Google Play
+              Based on 3,251 reviews from App Store and Google Play
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 

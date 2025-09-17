@@ -1,6 +1,6 @@
-# Ease Up Website - Next.js 15.5.2
+# Hawk AI Website - Next.js 15.5.2
 
-A modern, responsive website for Ease Up - an AI-powered posture correction and pain relief app.
+A modern, responsive website for Hawk AI - an AI-powered vision improvement app that helps users strengthen their eyesight through science-based exercises and smart 20-20-20 rule notifications.
 
 ## 🚀 Features
 
@@ -15,7 +15,7 @@ A modern, responsive website for Ease Up - an AI-powered posture correction and 
 ## 📁 Project Structure
 
 ```
-ease-up-website-next/
+hawk-ai-website-next/
 ├── src/
 │   ├── app/                 # Next.js App Router
 │   │   ├── layout.tsx       # Root layout
@@ -52,7 +52,7 @@ ease-up-website-next/
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd ease-up-website-next
+cd hawk-ai-website-next
 ```
 
 2. Install dependencies:
@@ -105,9 +105,9 @@ npm start
 
 ## 📱 Pages
 
-- **Home** (`/`) - Main landing page
-- **Apple Waitlist** (`/apple-waitlist`) - iOS app waitlist
-- **Android Waitlist** (`/android-waitlist`) - Android app waitlist
+- **Home** (`/`) - Main landing page showcasing Hawk AI's vision improvement features
+- **Apple Waitlist** (`/apple-waitlist`) - iOS app waitlist for Hawk AI
+- **Android Waitlist** (`/android-waitlist`) - Android app waitlist for Hawk AI
 
 ## 🔧 API Routes
 
@@ -115,13 +115,13 @@ npm start
 
 ## 🎨 Components
 
-- `Header` - Navigation and branding
-- `Hero` - Main hero section
-- `Features` - App features showcase
-- `HowItWorks` - How the app works
-- `Testimonials` - User testimonials
-- `FAQ` - Frequently asked questions
-- `ContactForm` - Contact form
+- `Header` - Navigation and Hawk AI branding
+- `Hero` - Main hero section highlighting vision improvement
+- `Features` - Eye health and vision training features
+- `HowItWorks` - How Hawk AI vision improvement works
+- `Testimonials` - User success stories with vision improvement
+- `FAQ` - Frequently asked questions about eye health and vision exercises
+- `ContactForm` - Contact form for support
 - `Footer` - Site footer
 
 ## 📄 License
@@ -130,4 +130,13 @@ This project is private and proprietary.
 
 ## 🤝 Support
 
-For support, email support@ease-up.app
+For support, email support@hawk-ai.app
+
+## 📋 Key Features
+
+- **Science-Based Eye Exercises** - Personalized vision improvement programs
+- **20-20-20 Rule Notifications** - Smart reminders to prevent digital eye strain
+- **Vision Progress Tracking** - Monitor eye health improvements with analytics
+- **Eye Health Protection** - Optometrist-approved techniques
+- **Quick Eye Workouts** - 3-10 minute daily sessions
+- **Smart Vision AI** - Adaptive algorithms based on screen time patterns
