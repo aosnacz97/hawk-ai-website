@@ -1,6 +1,6 @@
 # Hawk AI Website - Next.js 15.5.2
 
-A modern, responsive website for Hawk AI - an AI-powered vision improvement app that helps users strengthen their eyesight through science-based exercises and smart 20-20-20 rule notifications.
+A modern, responsive website for Hawk AI - an AI-powered vision improvement app that helps users strengthen their eyes through science-based exercises and the 20-20-20 rule notification system.
 
 ## 🚀 Features
 
@@ -11,6 +11,8 @@ A modern, responsive website for Hawk AI - an AI-powered vision improvement app 
 - **Resend** integration for email functionality
 - **Responsive design** for all devices
 - **SEO optimized** with proper metadata
+- **Vision-focused features** with eye exercise programs
+- **20-20-20 rule notifications** for digital eye strain prevention
 
 ## 📁 Project Structure
 
@@ -106,8 +108,8 @@ npm start
 ## 📱 Pages
 
 - **Home** (`/`) - Main landing page showcasing Hawk AI's vision improvement features
-- **Apple Waitlist** (`/apple-waitlist`) - iOS app waitlist for Hawk AI
-- **Android Waitlist** (`/android-waitlist`) - Android app waitlist for Hawk AI
+- **Apple Waitlist** (`/apple-waitlist`) - iOS app waitlist for vision improvement app
+- **Android Waitlist** (`/android-waitlist`) - Android app waitlist for vision improvement app
 
 ## 🔧 API Routes
 
@@ -115,13 +117,13 @@ npm start
 
 ## 🎨 Components
 
-- `Header` - Navigation and Hawk AI branding
-- `Hero` - Main hero section highlighting vision improvement
-- `Features` - Eye health and vision training features
-- `HowItWorks` - How Hawk AI vision improvement works
+- `Header` - Navigation and branding
+- `Hero` - Main hero section focused on vision improvement
+- `Features` - Eye exercise and vision improvement features showcase
+- `HowItWorks` - How Hawk AI's vision improvement process works
 - `Testimonials` - User success stories with vision improvement
-- `FAQ` - Frequently asked questions about eye health and vision exercises
-- `ContactForm` - Contact form for support
+- `FAQ` - Frequently asked questions about eye exercises and vision health
+- `ContactForm` - Contact form
 - `Footer` - Site footer
 
 ## 📄 License
@@ -130,13 +132,4 @@ This project is private and proprietary.
 
 ## 🤝 Support
 
-For support, email support@hawk-ai.app
-
-## 📋 Key Features
-
-- **Science-Based Eye Exercises** - Personalized vision improvement programs
-- **20-20-20 Rule Notifications** - Smart reminders to prevent digital eye strain
-- **Vision Progress Tracking** - Monitor eye health improvements with analytics
-- **Eye Health Protection** - Optometrist-approved techniques
-- **Quick Eye Workouts** - 3-10 minute daily sessions
-- **Smart Vision AI** - Adaptive algorithms based on screen time patterns
+For support, email support@hawkai.app
