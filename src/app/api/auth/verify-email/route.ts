@@ -58,13 +58,13 @@ export async function POST(request: NextRequest) {
     if (resend) {
       try {
         await resend.emails.send({
-          from: 'Ease Up <noreply@ease-up.app>',
+          from: 'Hawk AI <noreply@hawkai.app>',
           to: [payload.email],
-          subject: 'Email verified successfully - Ease Up',
+          subject: 'Email verified successfully - Hawk AI',
           html: getVerificationSuccessEmailTemplate({
             name: 'User',
             email: payload.email,
-            appName: 'Ease Up'
+            appName: 'Hawk AI'
           }),
         });
       } catch (emailError) {

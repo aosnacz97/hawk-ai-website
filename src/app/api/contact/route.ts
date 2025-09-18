@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
 
     // Send email to support team
     const { error } = await resend.emails.send({
-      from: 'Ease Up <contact@ease-up.app>',
-      to: ['support@ease-up.app'],
+      from: 'Hawk AI <contact@hawkai.app>',
+      to: ['support@hawkai.app'],
       replyTo: email,
       subject: `Contact Form: ${subject}`,
       html: `
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
           </div>
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center; color: #6b7280; font-size: 14px;">
-            <p>This message was sent from the Ease Up contact form.</p>
+            <p>This message was sent from the Hawk AI contact form.</p>
             <p>You can reply directly to this email to respond to the sender.</p>
           </div>
         </div>
@@ -72,9 +72,9 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to the user
     await resend.emails.send({
-      from: 'Ease Up <contact@ease-up.app>',
+      from: 'Hawk AI <contact@hawkai.app>',
       to: [email],
-      subject: 'Thank you for contacting Ease Up',
+      subject: 'Thank you for contacting Hawk AI',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #3B82F6; margin-bottom: 20px;">Thank you for reaching out!</h2>
@@ -93,11 +93,11 @@ export async function POST(request: NextRequest) {
           
           <p style="line-height: 1.6; color: #374151;">
             If you have any urgent questions, you can also reach us directly at 
-            <a href="mailto:support@ease-up.app" style="color: #3B82F6;">support@ease-up.app</a>
+            <a href="mailto:support@hawkai.app" style="color: #3B82F6;">support@hawkai.app</a>
           </p>
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center; color: #6b7280; font-size: 14px;">
-            <p>Best regards,<br>The Ease Up Team</p>
+            <p>Best regards,<br>The Hawk AI Team</p>
           </div>
         </div>
       `,

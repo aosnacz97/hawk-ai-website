@@ -10,7 +10,7 @@ export function getVerificationEmailTemplate({
   name = 'User',
   email, // eslint-disable-line @typescript-eslint/no-unused-vars
   verificationUrl,
-  appName = 'Ease Up'
+  appName = 'Hawk AI'
 }: EmailTemplateProps): string {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
@@ -55,7 +55,7 @@ export function getVerificationEmailTemplate({
       <div style="background: #F9FAFB; padding: 30px; text-align: center; border-radius: 0 0 8px 8px; border-top: 1px solid #E5E7EB;">
         <p style="color: #6B7280; margin: 0 0 10px 0; font-size: 14px;">
           Need help? Contact us at 
-          <a href="mailto:support@ease-up.app" style="color: #3B82F6; text-decoration: none;">support@ease-up.app</a>
+          <a href="mailto:support@hawkai.app" style="color: #3B82F6; text-decoration: none;">support@hawkai.app</a>
         </p>
         <p style="color: #9CA3AF; margin: 0; font-size: 12px;">
           © 2024 ${appName}. All rights reserved.
@@ -69,7 +69,7 @@ export function getMagicLinkEmailTemplate({
   name = 'User',
   email, // eslint-disable-line @typescript-eslint/no-unused-vars
   magicLinkUrl,
-  appName = 'Ease Up'
+  appName = 'Hawk AI'
 }: EmailTemplateProps): string {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
@@ -120,7 +120,7 @@ export function getMagicLinkEmailTemplate({
       <div style="background: #F9FAFB; padding: 30px; text-align: center; border-radius: 0 0 8px 8px; border-top: 1px solid #E5E7EB;">
         <p style="color: #6B7280; margin: 0 0 10px 0; font-size: 14px;">
           Need help? Contact us at 
-          <a href="mailto:support@ease-up.app" style="color: #3B82F6; text-decoration: none;">support@ease-up.app</a>
+          <a href="mailto:support@hawkai.app" style="color: #3B82F6; text-decoration: none;">support@hawkai.app</a>
         </p>
         <p style="color: #9CA3AF; margin: 0; font-size: 12px;">
           © 2024 ${appName}. All rights reserved.
@@ -133,7 +133,7 @@ export function getMagicLinkEmailTemplate({
 export function getVerificationSuccessEmailTemplate({
   name = 'User',
   email, // eslint-disable-line @typescript-eslint/no-unused-vars
-  appName = 'Ease Up'
+  appName = 'Hawk AI'
 }: EmailTemplateProps): string {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
@@ -164,7 +164,7 @@ export function getVerificationSuccessEmailTemplate({
       <div style="background: #F9FAFB; padding: 30px; text-align: center; border-radius: 0 0 8px 8px; border-top: 1px solid #E5E7EB;">
         <p style="color: #6B7280; margin: 0 0 10px 0; font-size: 14px;">
           Need help getting started? Contact us at 
-          <a href="mailto:support@ease-up.app" style="color: #3B82F6; text-decoration: none;">support@ease-up.app</a>
+          <a href="mailto:support@hawkai.app" style="color: #3B82F6; text-decoration: none;">support@hawkai.app</a>
         </p>
         <p style="color: #9CA3AF; margin: 0; font-size: 12px;">
           © 2024 ${appName}. All rights reserved.

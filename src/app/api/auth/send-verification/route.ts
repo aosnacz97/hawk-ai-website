@@ -49,14 +49,14 @@ export async function POST(request: NextRequest) {
 
     // Send verification email
     const { error } = await resend.emails.send({
-      from: 'Ease Up <noreply@ease-up.app>',
+      from: 'Hawk AI <noreply@hawkai.app>',
       to: [sanitizedEmail],
-      subject: 'Verify your email address - Ease Up',
+      subject: 'Verify your email address - Hawk AI',
       html: getVerificationEmailTemplate({
         name: name || 'User',
         email: sanitizedEmail,
         verificationUrl,
-        appName: 'Ease Up'
+        appName: 'Hawk AI'
       }),
     });
 
