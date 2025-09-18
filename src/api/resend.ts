@@ -33,7 +33,7 @@ Message:
 ${data.message}
 
 ---
-Sent from Ease Up website contact form
+Sent from Hawk AI website contact form
     `)}`;
     
     window.open(mailtoLink, '_blank');
