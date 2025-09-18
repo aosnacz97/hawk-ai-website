@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://hawkai.app'),
+  metadataBase: new URL('https://hawk-ai.xyz'),
   openGraph: {
     title: 'Hawk AI - AI-Powered Vision Improvement & Eye Exercise',
     description: 'Strengthen your vision and protect your eyes with AI-powered guidance.',
-    url: 'https://hawkai.app',
+    url: 'https://hawk-ai.xyz',
     siteName: 'Hawk AI',
     images: [
       {

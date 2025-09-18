@@ -238,10 +238,10 @@ function VerifyEmailContent() {
                 <strong>Note:</strong> Account access is restricted until email verification is completed.
               </p>
               <Link
-                href="mailto:support@hawkai.app"
+                href="mailto:support@hawk-ai.xyz"
                 className="inline-flex items-center text-xs text-blue-600 hover:text-blue-700 underline"
               >
-                support@hawkai.app
+                support@hawk-ai.xyz
               </Link>
             </div>
           </div>

@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
 
     // Send email to support team
     const { error } = await resend.emails.send({
-      from: 'Hawk AI <contact@hawkai.app>',
-      to: ['support@hawkai.app'],
+      from: 'Hawk AI <contact@hawk-ai.xyz>',
+      to: ['support@hawk-ai.xyz'],
       replyTo: email,
       subject: `Contact Form: ${subject}`,
       html: `
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to the user
     await resend.emails.send({
-      from: 'Hawk AI <contact@hawkai.app>',
+      from: 'Hawk AI <contact@hawk-ai.xyz>',
       to: [email],
       subject: 'Thank you for contacting Hawk AI',
       html: `
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
           
           <p style="line-height: 1.6; color: #374151;">
             If you have any urgent questions, you can also reach us directly at 
-            <a href="mailto:support@hawkai.app" style="color: #3B82F6;">support@hawkai.app</a>
+            <a href="mailto:support@hawk-ai.xyz" style="color: #3B82F6;">support@hawk-ai.xyz</a>
           </p>
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center; color: #6b7280; font-size: 14px;">

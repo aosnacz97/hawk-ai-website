@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     if (resend) {
       try {
         await resend.emails.send({
-          from: 'Hawk AI <noreply@hawkai.app>',
+          from: 'Hawk AI <noreply@hawk-ai.xyz>',
           to: [payload.email],
           subject: 'Email verified successfully - Hawk AI',
           html: getVerificationSuccessEmailTemplate({

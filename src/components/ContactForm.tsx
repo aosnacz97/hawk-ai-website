@@ -55,8 +55,8 @@ const ContactForm: React.FC = () => {
     {
       icon: EnvelopeIcon,
       title: 'Email Support',
-      content: 'support@hawkai.app',
-      href: 'mailto:support@hawkai.app',
+      content: 'support@hawk-ai.xyz',
+      href: 'mailto:support@hawk-ai.xyz',
       description: 'Get help with your account or technical issues'
     },
     {
@@ -262,7 +262,7 @@ const ContactForm: React.FC = () => {
               {submitStatus === 'error' && (
                 <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
                   <p className="text-red-800">
-                    {errorMessage || 'Sorry, there was an error. Please email us directly at support@hawkai.app'}
+                    {errorMessage || 'Sorry, there was an error. Please email us directly at support@hawk-ai.xyz'}
                   </p>
                 </div>
               )}

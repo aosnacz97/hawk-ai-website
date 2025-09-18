@@ -236,10 +236,10 @@ function MagicLinkContent() {
                 <strong>Note:</strong> Make sure you have the Hawk AI app installed on your device.
               </p>
               <Link
-                href="mailto:support@hawkai.app"
+                href="mailto:support@hawk-ai.xyz"
                 className="inline-flex items-center text-xs text-blue-600 hover:text-blue-700 underline"
               >
-                support@hawkai.app
+                support@hawk-ai.xyz
               </Link>
             </div>
           </div>

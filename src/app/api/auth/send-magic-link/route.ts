@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
 
     // Send magic link email
     const { error } = await resend.emails.send({
-      from: 'Hawk AI <noreply@hawkai.app>',
+      from: 'Hawk AI <noreply@hawk-ai.xyz>',
       to: [sanitizedEmail],
       subject: 'Your Hawk AI login link',
       html: getMagicLinkEmailTemplate({
