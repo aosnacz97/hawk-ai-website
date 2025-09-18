@@ -26,13 +26,13 @@ export default function LoginPage() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <Image
-                src="/ease_up_logo.png"
-                alt="Ease Up Logo"
+                src="/hawkeye_logo.png"
+                alt="Hawk AI Logo"
                 width={40}
                 height={40}
                 className="h-10 w-10 rounded-2xl"
               />
-              <span className="text-xl font-bold text-gray-900">Ease Up</span>
+              <span className="text-xl font-bold text-gray-900">Hawk AI</span>
             </Link>
             <Link
               href="/"
@@ -51,15 +51,15 @@ export default function LoginPage() {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-6">
               <Image
-                src="/ease_up_logo.png"
-                alt="Ease Up Logo"
+                src="/hawkeye_logo.png"
+                alt="Hawk AI Logo"
                 width={64}
                 height={64}
                 className="h-16 w-16 rounded-3xl shadow-lg"
               />
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-3">
-              Welcome to Ease Up
+              Welcome to Hawk AI
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed mb-4">
               Your journey to better posture and pain relief starts here

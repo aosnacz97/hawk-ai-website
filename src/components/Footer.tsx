@@ -52,18 +52,18 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-2">
               <div className="flex items-center mb-6">
                 <Image
-                  src="/ease_up_logo.png"
-                  alt="Ease Up Logo"
+                  src="/hawkeye_logo.png"
+                  alt="Hawk AI Logo"
                   width={40}
                   height={40}
                   className="h-10 w-10 rounded-2xl"
                 />
-                <span className="ml-2 text-xl font-bold">Ease Up</span>
+                <span className="ml-2 text-xl font-bold">Hawk AI</span>
               </div>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                The premier AI-powered posture correction and pain relief app. 
-                Transform your posture, reduce pain, and improve flexibility with 
-                personalized programs designed specifically for you.
+                The premier AI-powered vision improvement and eye health app. 
+                Strengthen your vision, protect your eyes from strain, and enhance visual performance with 
+                personalized eye exercise programs designed specifically for you.
               </p>
               
               {/* App Store Badges */}
@@ -172,7 +172,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} Ease Up. All rights reserved.
+              © {currentYear} Hawk AI. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
               <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=cc219bc3-a2ff-42c3-88df-2e01c4010ade" className="hover:text-white transition-colors duration-200" target="_blank" rel="noopener noreferrer">

@@ -37,13 +37,13 @@ const AppleWaitlist: React.FC = () => {
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center">
             <Image
-              src="/ease_up_logo_transparent.png"
-              alt="Ease Up Logo"
+              src="/hawkeye_logo_transparent.png"
+              alt="Hawk AI Logo"
               width={32}
               height={32}
               className="h-8 w-auto"
             />
-            <span className="ml-2 text-xl font-bold text-gray-900">Ease Up</span>
+            <span className="ml-2 text-xl font-bold text-gray-900">Hawk AI</span>
           </div>
           <div className="flex items-center space-x-4">
             <a href="/apple-waitlist" className="inline-block">
@@ -73,13 +73,13 @@ const AppleWaitlist: React.FC = () => {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
               <Image
-                src="/ease_up_logo.png"
-                alt="Ease Up Logo"
+                src="/hawkeye_logo.png"
+                alt="Hawk AI Logo"
                 width={48}
                 height={48}
                 className="h-12 w-12 rounded-2xl"
               />
-              <span className="ml-3 text-2xl font-bold text-gray-900">Ease Up</span>
+              <span className="ml-3 text-2xl font-bold text-gray-900">Hawk AI</span>
             </div>
           </div>
 
@@ -90,8 +90,8 @@ const AppleWaitlist: React.FC = () => {
 
           {/* Description */}
           <p className="text-gray-600 text-center mb-8 leading-relaxed">
-            Ease Up is launching on iOS! Be the first to know when our AI-powered posture correction 
-            and pain relief app becomes available on the App Store.
+            Hawk AI is launching on iOS! Be the first to know when our AI-powered vision improvement 
+            and eye exercise app becomes available on the App Store.
           </p>
 
           {/* App Store Badge */}
@@ -143,7 +143,7 @@ const AppleWaitlist: React.FC = () => {
                 🎉 You&apos;re on the list!
               </div>
               <p className="text-gray-600">
-                We&apos;ll notify you as soon as Ease Up launches on iOS.
+                We&apos;ll notify you as soon as Hawk AI launches on iOS.
               </p>
             </div>
           )}

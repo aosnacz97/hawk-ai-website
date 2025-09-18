@@ -80,13 +80,13 @@ function MagicLinkContent() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <Image
-                src="/ease_up_logo.png"
-                alt="Ease Up Logo"
+                src="/hawkeye_logo.png"
+                alt="Hawk AI Logo"
                 width={40}
                 height={40}
                 className="h-10 w-10 rounded-2xl"
               />
-              <span className="text-xl font-bold text-gray-900">Ease Up</span>
+              <span className="text-xl font-bold text-gray-900">Hawk AI</span>
             </Link>
             <Link
               href="/auth/login"
@@ -105,8 +105,8 @@ function MagicLinkContent() {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-6">
               <Image
-                src="/ease_up_logo.png"
-                alt="Ease Up Logo"
+                src="/hawkeye_logo.png"
+                alt="Hawk AI Logo"
                 width={64}
                 height={64}
                 className="h-16 w-16 rounded-3xl shadow-lg"
@@ -175,10 +175,10 @@ function MagicLinkContent() {
                         <div className="text-green-600 mt-0.5">✅</div>
                         <div className="text-left">
                           <p className="text-sm text-green-800 mb-1">
-                            Redirecting to Ease Up App
+                            Redirecting to Hawk AI App
                           </p>
                           <p className="text-xs text-green-700">
-                            You should be automatically redirected to the Ease Up app. If not, tap the button below.
+                            You should be automatically redirected to the Hawk AI app. If not, tap the button below.
                           </p>
                         </div>
                       </div>
@@ -188,7 +188,7 @@ function MagicLinkContent() {
                     onClick={handleContinue}
                     className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-medium py-3 px-6 rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-200 shadow-sm"
                   >
-                    Open Ease Up App
+                    Open Hawk AI App
                   </button>
                 </div>
               )}
@@ -233,13 +233,13 @@ function MagicLinkContent() {
                 Magic links expire after 1 hour. If you&apos;re having trouble, try requesting a new magic link.
               </p>
               <p className="text-xs text-gray-500 leading-relaxed">
-                <strong>Note:</strong> Make sure you have the Ease Up app installed on your device.
+                <strong>Note:</strong> Make sure you have the Hawk AI app installed on your device.
               </p>
               <Link
-                href="mailto:support@ease-up.app"
+                href="mailto:support@hawkai.app"
                 className="inline-flex items-center text-xs text-blue-600 hover:text-blue-700 underline"
               >
-                support@ease-up.app
+                support@hawkai.app
               </Link>
             </div>
           </div>

@@ -55,8 +55,8 @@ const ContactForm: React.FC = () => {
     {
       icon: EnvelopeIcon,
       title: 'Email Support',
-      content: 'support@ease-up.app',
-      href: 'mailto:support@ease-up.app',
+      content: 'support@hawkai.app',
+      href: 'mailto:support@hawkai.app',
       description: 'Get help with your account or technical issues'
     },
     {
@@ -84,8 +84,8 @@ const ContactForm: React.FC = () => {
             Get in Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Have questions about Ease Up? Need support with your posture program? 
-            We&apos;re here to help you on your journey to better posture and pain relief.
+            Have questions about Hawk AI? Need support with your vision improvement program? 
+            We&apos;re here to help you on your journey to better vision and eye health.
           </p>
         </div>
 
@@ -135,20 +135,20 @@ const ContactForm: React.FC = () => {
             {/* Additional Info Card */}
             <div className="bg-gradient-to-r from-gray-900 to-black rounded-2xl p-8 text-white">
               <h4 className="text-xl font-bold mb-4">
-                Why Choose Ease Up?
+                Why Choose Hawk AI?
               </h4>
               <div className="space-y-3 text-gray-200">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                  <span>AI-powered posture analysis</span>
+                  <span>AI-powered vision analysis</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                  <span>Personalized exercise programs</span>
+                  <span>Personalized eye exercise programs</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                  <span>Real-time feedback and tracking</span>
+                  <span>20-20-20 rule notifications</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
@@ -262,7 +262,7 @@ const ContactForm: React.FC = () => {
               {submitStatus === 'error' && (
                 <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
                   <p className="text-red-800">
-                    {errorMessage || 'Sorry, there was an error. Please email us directly at support@ease-up.app'}
+                    {errorMessage || 'Sorry, there was an error. Please email us directly at support@hawkai.app'}
                   </p>
                 </div>
               )}

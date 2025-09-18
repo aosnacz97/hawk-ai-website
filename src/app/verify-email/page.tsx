@@ -81,13 +81,13 @@ function VerifyEmailContent() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <Image
-                src="/ease_up_logo.png"
-                alt="Ease Up Logo"
+                src="/hawkeye_logo.png"
+                alt="Hawk AI Logo"
                 width={40}
                 height={40}
                 className="h-10 w-10 rounded-2xl"
               />
-              <span className="text-xl font-bold text-gray-900">Ease Up</span>
+              <span className="text-xl font-bold text-gray-900">Hawk AI</span>
             </Link>
             <Link
               href="/auth/login"
@@ -106,8 +106,8 @@ function VerifyEmailContent() {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-6">
               <Image
-                src="/ease_up_logo.png"
-                alt="Ease Up Logo"
+                src="/hawkeye_logo.png"
+                alt="Hawk AI Logo"
                 width={64}
                 height={64}
                 className="h-16 w-16 rounded-3xl shadow-lg"
@@ -177,7 +177,7 @@ function VerifyEmailContent() {
                         <div className="text-green-600 mt-0.5">✅</div>
                         <div className="text-left">
                           <p className="text-sm text-green-800 mb-1">
-                            Welcome to Ease Up! Your email is now verified.
+                            Welcome to Hawk AI! Your email is now verified.
                           </p>
                           <p className="text-xs text-green-700">
                             You can now sign in and access all posture correction features and personalized exercise programs.
@@ -238,10 +238,10 @@ function VerifyEmailContent() {
                 <strong>Note:</strong> Account access is restricted until email verification is completed.
               </p>
               <Link
-                href="mailto:support@ease-up.app"
+                href="mailto:support@hawkai.app"
                 className="inline-flex items-center text-xs text-blue-600 hover:text-blue-700 underline"
               >
-                support@ease-up.app
+                support@hawkai.app
               </Link>
             </div>
           </div>
