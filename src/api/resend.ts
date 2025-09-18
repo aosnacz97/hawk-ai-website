@@ -24,7 +24,7 @@ export const sendContactEmail = async (data: ContactFormData): Promise<{ success
   try {
     // For now, let's use a simple approach that doesn't require backend
     // We'll redirect to a mailto link as a fallback
-    const mailtoLink = `mailto:support@ease-up.app?subject=${encodeURIComponent(`Contact Form: ${data.subject}`)}&body=${encodeURIComponent(`
+    const mailtoLink = `mailto:support@hawk-ai.xyz?subject=${encodeURIComponent(`Contact Form: ${data.subject}`)}&body=${encodeURIComponent(`
 Name: ${data.name}
 Email: ${data.email}
 Subject: ${data.subject}
@@ -48,7 +48,7 @@ Sent from Ease Up website contact form
   } catch {
     return { 
       success: false, 
-      message: 'Failed to open email client. Please email us directly at support@ease-up.app' 
+      message: 'Failed to open email client. Please email us directly at support@hawk-ai.xyz' 
     };
   }
 };

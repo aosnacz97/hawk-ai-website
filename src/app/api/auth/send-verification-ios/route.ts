@@ -144,15 +144,15 @@ export async function POST(request: NextRequest) {
 
     // Send verification email with iOS deep link
     const { error } = await resend.emails.send({
-      from: 'Ease Up <noreply@ease-up.app>',
+      from: 'Hawk AI <noreply@hawk-ai.xyz>',
       to: [sanitizedEmail],
-      subject: 'Verify your email address - Ease Up',
+      subject: 'Verify your email address - Hawk AI',
       html: getIOSVerificationEmailTemplate({
         name: sanitizedName || 'User',
         email: sanitizedEmail,
         verificationUrl: iosDeepLink,
         fallbackWebUrl: fallbackWebUrl,
-        appName: 'Ease Up'
+        appName: 'Hawk AI'
       }),
     });
 

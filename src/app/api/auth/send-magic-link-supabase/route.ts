@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await supabase.auth.signInWithOtp({
       email: email,
       options: {
-        emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL || 'https://www.ease-up.app'}/auth/magic-link`
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL || 'https://www.hawk-ai.xyz'}/auth/magic-link`
       }
     });
 
