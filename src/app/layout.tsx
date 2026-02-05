@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { AppStoreProvider } from '../context/AppStoreContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Hawk AI - AI-Powered Vision Improvement & Eye Exercise',
   description: 'Strengthen your vision and protect your eyes with AI-powered guidance. Download Hawk AI for personalized eye exercises and 20-20-20 rule notifications.',
-  keywords: 'vision improvement, eye exercises, AI eye care, eye health app, vision app, 20-20-20 rule, eye strain relief',
+  keywords: 'vision improvement, eye exercises, AI eye care, eye health app, vision app, 20-20-20 rule, eye health',
   authors: [{ name: 'Hawk AI Team' }],
   creator: 'Hawk AI',
   publisher: 'Hawk AI',
@@ -69,7 +70,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={inter.className}>
-        {children}
+        <AppStoreProvider>
+          {children}
+        </AppStoreProvider>
       </body>
     </html>
   )

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -7,7 +9,8 @@ const Footer: React.FC = () => {
   const footerLinks = {
     product: [
       { name: 'Features', href: '#features' },
-      { name: 'How It Works', href: '#how-it-works' }
+      { name: 'How It Works', href: '#how-it-works' },
+      { name: 'Blog', href: '/blog' }
     ],
     support: [
       { name: 'Contact Us', href: '#contact' },
@@ -46,69 +49,68 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="py-10 sm:py-12 lg:py-16">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8">
             {/* Company Info */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center mb-6">
+            <div className="col-span-2 sm:col-span-2 lg:col-span-2">
+              <div className="flex items-center mb-4 lg:mb-6">
                 <Image
                   src="/hawkeye_logo.png"
                   alt="Hawk AI Logo"
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 rounded-2xl"
+                  width={36}
+                  height={36}
+                  className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl sm:rounded-2xl"
                 />
-                <span className="ml-2 text-xl font-bold">Hawk AI</span>
+                <span className="ml-2 text-lg sm:text-xl font-bold">Hawk AI</span>
               </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                The premier AI-powered vision improvement and eye health app. 
-                Strengthen your vision, protect your eyes from strain, and enhance visual performance with 
-                personalized eye exercise programs designed specifically for you.
+              <p className="text-sm sm:text-base text-gray-400 mb-4 lg:mb-6 leading-relaxed max-w-sm">
+                AI-powered eye health app with science-based exercises and smart 20-20-20
+                reminders to support your daily eye care routine.
               </p>
-              
+
               {/* App Store Badges */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <a 
-                  href="/apple-waitlist" 
+              <div className="flex flex-col sm:flex-row gap-3 mb-4 lg:mb-6 items-center sm:items-start">
+                <a
+                  href="/apple-waitlist"
                   className="inline-block transition-transform hover:scale-105"
                 >
                   <Image
                     src="/app_store_badge.png"
                     alt="Download on the App Store"
-                    width={150}
-                    height={50}
-                    className="h-10 w-auto"
+                    width={130}
+                    height={44}
+                    className="h-9 sm:h-10 w-auto"
                   />
                 </a>
-                <a 
-                  href="/android-waitlist" 
+                <a
+                  href="/android-waitlist"
                   className="inline-block transition-transform hover:scale-105"
                 >
                   <Image
                     src="/play_store_badge.png"
                     alt="Get it on Google Play"
-                    width={150}
-                    height={50}
-                    className="h-10 w-auto"
+                    width={130}
+                    height={44}
+                    className="h-9 sm:h-10 w-auto"
                   />
                 </a>
               </div>
 
               {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
                     href={social.href}
-                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors duration-200"
+                    className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors duration-200"
                     aria-label={social.name}
                   >
                     <Image
                       src={social.icon}
                       alt={social.name}
-                      width={20}
-                      height={20}
-                      className="w-5 h-5 brightness-0 invert"
+                      width={18}
+                      height={18}
+                      className="w-4 h-4 sm:w-5 sm:h-5 brightness-0 invert"
                     />
                   </a>
                 ))}
@@ -117,13 +119,13 @@ const Footer: React.FC = () => {
 
             {/* Product Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">Product</h3>
-              <ul className="space-y-3">
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold mb-4 lg:mb-6">Product</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.product.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                      className="text-sm sm:text-base text-gray-400 hover:text-white transition-colors duration-200"
                     >
                       {link.name}
                     </a>
@@ -134,13 +136,13 @@ const Footer: React.FC = () => {
 
             {/* Support Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">Support</h3>
-              <ul className="space-y-3">
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold mb-4 lg:mb-6">Support</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.support.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                      className="text-sm sm:text-base text-gray-400 hover:text-white transition-colors duration-200"
                     >
                       {link.name}
                     </a>
@@ -151,13 +153,13 @@ const Footer: React.FC = () => {
 
             {/* Company Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">Company</h3>
-              <ul className="space-y-3">
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold mb-4 lg:mb-6">Company</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                      className="text-sm sm:text-base text-gray-400 hover:text-white transition-colors duration-200"
                     >
                       {link.name}
                     </a>
@@ -169,12 +171,12 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-gray-800 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
+        <div className="border-t border-gray-800 py-6 sm:py-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="text-gray-400 text-xs sm:text-sm">
               © {currentYear} Hawk AI. All rights reserved.
             </div>
-            <div className="flex items-center space-x-6 text-sm text-gray-400">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400">
               <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=cc219bc3-a2ff-42c3-88df-2e01c4010ade" className="hover:text-white transition-colors duration-200" target="_blank" rel="noopener noreferrer">
                 Privacy Policy
               </a>

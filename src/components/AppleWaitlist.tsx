@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,7 +18,7 @@ const AppleWaitlist: React.FC = () => {
 
     try {
       const result = await submitToAppleWaitlist(email);
-      
+
       if (result.success) {
         setIsSubmitted(true);
         setEmail('');
@@ -31,175 +33,150 @@ const AppleWaitlist: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <div className="flex items-center">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Header */}
+      <header className="w-full px-4 sm:px-6 py-4">
+        <div className="max-w-md mx-auto flex justify-between items-center">
+          <Link href="/" className="flex items-center">
             <Image
               src="/hawkeye_logo_transparent.png"
               alt="Hawk AI Logo"
               width={32}
               height={32}
-              className="h-8 w-auto"
+              className="h-7 w-7 sm:h-8 sm:w-8"
             />
-            <span className="ml-2 text-xl font-bold text-gray-900">Hawk AI</span>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a href="/apple-waitlist" className="inline-block">
-              <Image
-                src="/app_store_badge.png"
-                alt="Download on the App Store"
-                width={120}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </a>
-            <a href="/android-waitlist" className="inline-block">
-              <Image
-                src="/play_store_badge.png"
-                alt="Get it on Google Play"
-                width={120}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </a>
-          </div>
+            <span className="ml-2 text-lg sm:text-xl font-bold text-gray-900">Hawk AI</span>
+          </Link>
+          <a href="/android-waitlist" className="inline-block">
+            <Image
+              src="/play_store_badge.png"
+              alt="Get it on Google Play"
+              width={100}
+              height={33}
+              className="h-7 sm:h-8 w-auto"
+            />
+          </a>
         </div>
+      </header>
 
-        {/* Main Content Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          {/* Logo */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center mb-4">
-              <Image
-                src="/hawkeye_logo.png"
-                alt="Hawk AI Logo"
-                width={48}
-                height={48}
-                className="h-12 w-12 rounded-2xl"
-              />
-              <span className="ml-3 text-2xl font-bold text-gray-900">Hawk AI</span>
-            </div>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">
-            Coming Soon to iOS
-          </h1>
-
-          {/* Description */}
-          <p className="text-gray-600 text-center mb-8 leading-relaxed">
-            Hawk AI is launching on iOS! Be the first to know when our AI-powered vision improvement 
-            and eye exercise app becomes available on the App Store.
-          </p>
-
-          {/* App Store Badge */}
-          <div className="text-center mb-8">
-            <a href="#app-store" className="inline-block transition-transform hover:scale-105">
-              <Image
-                src="/app_store_badge.png"
-                alt="Download on the App Store"
-                width={200}
-                height={60}
-                className="h-16 w-auto"
-              />
-            </a>
-          </div>
-
-          {/* Email Waitlist Form */}
-          {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="mb-8">
-              <div className="text-center mb-4">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+      {/* Main Content */}
+      <main className="flex-1 flex items-center justify-center p-4">
+        <div className="w-full max-w-md">
+          {/* Main Content Card */}
+          <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+            {/* Logo */}
+            <div className="text-center mb-6">
+              <div className="flex items-center justify-center mb-3">
+                <Image
+                  src="/hawkeye_logo.png"
+                  alt="Hawk AI Logo"
+                  width={44}
+                  height={44}
+                  className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl"
                 />
+                <span className="ml-2 sm:ml-3 text-xl sm:text-2xl font-bold text-gray-900">Hawk AI</span>
               </div>
-              {error && (
-                <div className="text-red-600 text-sm text-center mb-4">
-                  {error}
+            </div>
+
+            {/* Title */}
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
+              Coming Soon to iOS
+            </h1>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base text-gray-600 text-center mb-6 leading-relaxed">
+              Be the first to know when our AI-powered eye health and exercise app
+              becomes available on the App Store.
+            </p>
+
+            {/* App Store Badge */}
+            <div className="text-center mb-6">
+              <Image
+                src="/app_store_badge.png"
+                alt="Coming to the App Store"
+                width={180}
+                height={54}
+                className="h-12 sm:h-14 w-auto mx-auto opacity-75"
+              />
+            </div>
+
+            {/* Email Waitlist Form */}
+            {!isSubmitted ? (
+              <form onSubmit={handleSubmit} className="mb-6">
+                <div className="mb-4">
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    required
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  />
                 </div>
-              )}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                {error && (
+                  <div className="text-red-600 text-xs sm:text-sm text-center mb-4">
+                    {error}
+                  </div>
+                )}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-2.5 sm:py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base"
+                >
+                  {isSubmitting ? 'Joining...' : 'Join the Waitlist'}
+                </button>
+              </form>
+            ) : (
+              <div className="text-center mb-6 p-4 bg-green-50 rounded-lg">
+                <div className="text-green-600 text-base sm:text-lg font-semibold mb-1">
+                  You&apos;re on the list!
+                </div>
+                <p className="text-sm sm:text-base text-gray-600">
+                  We&apos;ll notify you when Hawk AI launches on iOS.
+                </p>
+              </div>
+            )}
+
+            {/* What to Expect Section */}
+            <div className="mb-6">
+              <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-3 text-center">
+                What to Expect on iOS
+              </h2>
+              <div className="space-y-2">
+                {[
+                  'AI-powered vision analysis and exercises',
+                  'Personalized eye exercise programs',
+                  'Smart 20-20-20 rule notifications',
+                  'Progress tracking and analytics'
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center">
+                    <div className="text-green-500 mr-2 flex-shrink-0">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <span className="text-sm sm:text-base text-gray-700">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Back to Home */}
+            <div className="text-center">
+              <Link
+                href="/"
+                className="text-sm sm:text-base text-blue-600 hover:text-blue-700 font-medium transition-colors"
               >
-                {isSubmitting ? 'Joining...' : 'Join the Waitlist'}
-              </button>
-            </form>
-          ) : (
-            <div className="text-center mb-8">
-              <div className="text-green-600 text-lg font-semibold mb-2">
-                🎉 You&apos;re on the list!
-              </div>
-              <p className="text-gray-600">
-                We&apos;ll notify you as soon as Hawk AI launches on iOS.
-              </p>
+                ← Back to Home
+              </Link>
             </div>
-          )}
-
-          {/* What to Expect Section */}
-          <div className="mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 text-center">
-              What to Expect on iOS
-            </h2>
-            <div className="space-y-3">
-              <div className="flex items-center">
-                <div className="text-green-500 mr-3">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <span className="text-gray-700">AI-powered posture analysis and correction</span>
-              </div>
-              <div className="flex items-center">
-                <div className="text-green-500 mr-3">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <span className="text-gray-700">Personalized exercise programs</span>
-              </div>
-              <div className="flex items-center">
-                <div className="text-green-500 mr-3">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <span className="text-gray-700">Progress tracking and analytics</span>
-              </div>
-              <div className="flex items-center">
-                <div className="text-green-500 mr-3">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <span className="text-gray-700">Optimized for iPhone and iPad</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Back to Home */}
-          <div className="text-center">
-            <Link 
-              href="/" 
-              className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
-            >
-              ← Back to Home
-            </Link>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

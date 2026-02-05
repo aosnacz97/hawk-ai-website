@@ -1,113 +1,187 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { useAppStoreRating } from '../context/AppStoreContext';
 
 const Hero: React.FC = () => {
+  const { shouldShow, formattedRating, formattedReviewCount, rating } = useAppStoreRating();
+
+  // Calculate filled stars for visual display
+  const filledStars = rating ? Math.round(rating) : 0;
+
   return (
-    <section id="home" className="pt-16 bg-gradient-to-br from-blue-50 via-white to-green-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between py-20 lg:py-32">
-          {/* Left Content */}
-          <div className="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-            <div className="animate-fade-in-up">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Strengthen Your Vision,
-                <span className="text-gray-900 block">Protect Your Eyes</span>
-                <span className="text-gray-900 block">See Clearly</span>
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Hawk AI provides science-based vision improvement programs and smart 
-                20-20-20 rule notifications. Our AI-powered app creates personalized eye 
-                exercise routines to strengthen your vision, reduce eye strain, and 
-                enhance visual performance.
-              </p>
-
-              {/* App Store Badges */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <a 
-                  href="/apple-waitlist" 
-                  className="inline-block transition-transform hover:scale-105"
-                >
-                  <Image
-                    src="/app_store_badge.png"
-                    alt="Download on the App Store"
-                    width={200}
-                    height={70}
-                    className="h-14 w-auto"
-                  />
-                </a>
-                <a 
-                  href="/android-waitlist" 
-                  className="inline-block transition-transform hover:scale-105"
-                >
-                  <Image
-                    src="/play_store_badge.png"
-                    alt="Get it on Google Play"
-                    width={200}
-                    height={70}
-                    className="h-14 w-auto"
-                  />
-                </a>
-              </div>
-
-              {/* Rating */}
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-lg font-semibold text-gray-700">4.8</span>
-                <span className="text-gray-600">(2,847 reviews)</span>
-              </div>
-
-              <p className="text-sm text-gray-500">
-                Join thousands of users who have improved their vision and reduced eye strain with Hawk AI
-              </p>
+    <section id="home" className="pt-20 sm:pt-24 min-h-screen flex flex-col bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
+        {/* Mobile Layout - Centered */}
+        <div className="w-full lg:hidden py-8 text-center">
+          {/* App Icon in Card */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-white rounded-2xl shadow-lg w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
+              <Image
+                src="/hawkeye_logo.png"
+                alt="Hawk AI"
+                width={80}
+                height={80}
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl"
+                priority
+              />
             </div>
           </div>
 
-          {/* Right Content - App Preview */}
-          <div className="lg:w-1/2 lg:pl-12">
-            <div className="relative">
-              <div className="relative z-10">
-                <Image
-                  src="/hawkeye_logo_transparent.png"
-                  alt="Hawk AI App Preview"
-                  width={400}
-                  height={400}
-                  className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
-                />
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
+            AI-Powered Eye Exercises & Vision Training
+          </h1>
+
+          {/* Description */}
+          <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto">
+            Hawk AI provides science-based eye exercises and smart 20-20-20 reminders.
+            Train your visual system and{' '}
+            <span className="font-semibold text-gray-900">support your eye health</span>{' '}
+            in just minutes a day.
+          </p>
+
+          {/* App Store Badges */}
+          <div className="flex flex-row gap-3 sm:gap-4 mb-6 items-center justify-center">
+            <a
+              href="/apple-waitlist"
+              className="inline-block transition-transform hover:scale-105"
+            >
+              <Image
+                src="/app_store_badge.png"
+                alt="Download on the App Store"
+                width={180}
+                height={60}
+                className="h-11 sm:h-14 w-auto"
+              />
+            </a>
+            <a
+              href="/android-waitlist"
+              className="inline-block transition-transform hover:scale-105"
+            >
+              <Image
+                src="/play_store_badge.png"
+                alt="Get it on Google Play"
+                width={180}
+                height={60}
+                className="h-11 sm:h-14 w-auto"
+              />
+            </a>
+          </div>
+
+          {/* Rating or Trust Text */}
+          {shouldShow ? (
+            <div className="inline-flex items-center justify-center bg-white rounded-xl shadow-md border border-gray-100 px-6 py-4 mt-2">
+              <span className="text-2xl sm:text-3xl font-bold text-gray-900 mr-2">{formattedRating}</span>
+              <div className="flex mr-3">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 ${i < filledStars ? 'text-yellow-400' : 'text-gray-300'}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
               </div>
+              <span className="text-sm sm:text-base text-gray-500">{formattedReviewCount} Reviews</span>
+            </div>
+          ) : (
+            <p className="text-sm text-gray-500 mt-2">
+              Free to download • Science-based exercises
+            </p>
+          )}
+        </div>
+
+        {/* Desktop Layout - Two Columns */}
+        <div className="hidden lg:flex w-full items-center justify-between py-12 gap-12 xl:gap-20">
+          {/* Left Column - Content */}
+          <div className="flex-1 max-w-2xl">
+            {/* Headline */}
+            <h1 className="text-5xl xl:text-6xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
+              AI-Powered Eye Exercises & Vision Training
+            </h1>
+
+            {/* Description */}
+            <p className="text-lg xl:text-xl text-gray-600 mb-8 leading-relaxed">
+              Hawk AI provides science-based eye exercises and smart 20-20-20 reminders.
+              Train your visual system and{' '}
+              <span className="font-semibold text-gray-900">support your eye health</span>{' '}
+              in just minutes a day.
+            </p>
+
+            {/* App Store Badges and Rating Row */}
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="/apple-waitlist"
+                className="inline-block transition-transform hover:scale-105"
+              >
+                <Image
+                  src="/app_store_badge.png"
+                  alt="Download on the App Store"
+                  width={160}
+                  height={53}
+                  className="h-12 w-auto"
+                />
+              </a>
+              <a
+                href="/android-waitlist"
+                className="inline-block transition-transform hover:scale-105"
+              >
+                <Image
+                  src="/play_store_badge.png"
+                  alt="Get it on Google Play"
+                  width={160}
+                  height={53}
+                  className="h-12 w-auto"
+                />
+              </a>
+
+              {/* Rating Card - inline on desktop */}
+              {shouldShow && (
+                <div className="flex items-center bg-white rounded-xl shadow-sm border border-gray-100 px-5 py-3 ml-2">
+                  <span className="text-2xl font-bold text-gray-900 mr-2">{formattedRating}</span>
+                  <div className="flex mr-2">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className={`w-5 h-5 ${i < filledStars ? 'text-yellow-400' : 'text-gray-300'}`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-sm text-gray-500">{formattedReviewCount} Reviews</span>
+                </div>
+              )}
+            </div>
+
+            {/* Trust Text - only show if no rating */}
+            {!shouldShow && (
+              <p className="text-sm text-gray-500 mt-4">
+                Free to download • Science-based exercises
+              </p>
+            )}
+          </div>
+
+          {/* Right Column - Logo */}
+          <div className="flex-shrink-0">
+            <div className="bg-white rounded-3xl shadow-2xl w-72 h-72 xl:w-80 xl:h-80 flex items-center justify-center">
+              <Image
+                src="/hawkeye_logo.png"
+                alt="Hawk AI"
+                width={200}
+                height={200}
+                className="w-48 h-48 xl:w-56 xl:h-56 rounded-2xl"
+                priority
+              />
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Wave separator */}
-      <div className="relative">
-        <svg
-          className="w-full h-16 text-white"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-            opacity=".25"
-            fill="currentColor"
-          ></path>
-          <path
-            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-            opacity=".5"
-            fill="currentColor"
-          ></path>
-          <path
-            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-            fill="currentColor"
-          ></path>
-        </svg>
       </div>
     </section>
   );
